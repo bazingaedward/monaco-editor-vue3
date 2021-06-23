@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "test": "jest"
   },
   "keywords": [
     "Vue3",
@@ -23,8 +24,17 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
     "@vitejs/plugin-vue": "^1.2.1",
-    "@vue/compiler-sfc": "^3.0.5",
-    "vite": "^2.1.5"
+    "@vue/compiler-sfc": "^3.1.2",
+    "@vue/test-utils": "^2.0.0-rc.8",
+    "babel-jest": "26",
+    "jest": "26",
+    "vite": "^2.1.5",
+    "vue-jest": "^5.0.0-alpha.10"
   }
 }
