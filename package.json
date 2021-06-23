@@ -1,12 +1,25 @@
 {
   "name": "monaco-editor-vue3",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
   },
+  "keywords": [
+    "Vue3",
+    "monaco",
+    "monaco-editor"
+  ],
+  "main": "./dist/monaco-editor-vue3.umd.js",
+  "module": "./dist/monaco-editor-vue3.es.js",
+  "author": {
+    "name": "邱凯翔",
+    "email": "qkx2010@aliyun.com",
+    "url": "https://github.com/bazingaedward"
+  },
   "dependencies": {
+    "monaco-editor": "^0.25.2",
     "vue": "^3.0.5"
   },
   "devDependencies": {

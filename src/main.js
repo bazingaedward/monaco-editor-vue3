@@ -1,4 +1,6 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import Editor from './Editor.vue'
 
-createApp(App).mount('#app')
+Editor.install = (app) => {
+    app.component(Editor.name, Editor)
+}
+export default Editor
