@@ -34,6 +34,8 @@
     "@vue/test-utils": "^2.0.0-rc.8",
     "babel-jest": "26",
     "jest": "26",
+    "rollup-plugin-monaco-editor": "^0.0.7",
+    "sass": "^1.35.1",
     "vite": "^2.1.5",
     "vue-jest": "^5.0.0-alpha.10"
   }
