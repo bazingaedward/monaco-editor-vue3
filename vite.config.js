@@ -1,7 +1,6 @@
 // vite.config.js
 const path = require('path')
 const vue = require('@vitejs/plugin-vue')
-const monaco = require('rollup-plugin-monaco-editor')
 
 module.exports = {
   build: {
@@ -17,8 +16,5 @@ module.exports = {
 
   plugins: [
     vue(),
-    monaco({
-      languages: ['javascript']
-    })
   ]
 }

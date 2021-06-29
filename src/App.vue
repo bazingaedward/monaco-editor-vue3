@@ -1,14 +1,26 @@
 <template>
+  <!-- <MonacoEditor
+    :theme="theme"
+    :options="options"
+    language="javascript"
+    :width="800"
+    :height="800"
+  ></MonacoEditor> -->
   <MonacoEditor
     theme="vs"
     :options="options"
-    language="json"
+    language="javascript"
+    :width="800"
+    :height="800"
+    :diffEditor="true"
+    :original="original"
+    :value="value"
   ></MonacoEditor>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MonacoEditor from './Editor.vue'
+import MonacoEditor from './MonacoEditor.vue'
 
 export default defineComponent({
   name: 'App',
@@ -21,9 +33,18 @@ export default defineComponent({
         colorDecorators: true,
         lineHeight: 24,
         tabSize: 2
-      }
+      },
+      original: 'hello',
+      value: 'world',
+      width: 800,
+      theme: 'vs'
     }
   },
+  mounted(){
+    setTimeout(()=>{
+      this.original='vs-dark'
+    },2000)
+  }
 })
 </script>
 
