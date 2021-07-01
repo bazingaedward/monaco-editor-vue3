@@ -1,5 +1,4 @@
-- ts
-- readme: readme_zh.md
+- typescript support
+- add README_CN.md
 - Add test&publish to npm
-- vite rollup bundler: 1.5m -> ?
-- rollup-plugin-monaco-editor
+- add plugin for vite: `rollup-plugin-monaco-editor-vue3`
