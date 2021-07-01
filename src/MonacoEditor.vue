@@ -4,7 +4,7 @@
 
 <script >
 import { defineComponent, computed, toRefs } from 'vue'
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
+import * as monaco from 'monaco-editor'
 
 export default defineComponent({
   name: "MonacoEditor",
@@ -18,6 +18,11 @@ export default defineComponent({
     theme: {type: String, default: 'vs'},
     options: {type: Object, default() {return {};}},
   },
+  emits: [
+    'editorWillMount',
+    'editorDidMount',
+    'change'
+  ],
   setup(props){
     const { width, height } = toRefs(props)
     const style = computed(()=>{
@@ -37,10 +42,11 @@ export default defineComponent({
     this.initMonaco()
   },
   beforeDestroy() {
-    this.editor.dispose();
+    this.editor && this.editor.dispose();
   },
   methods: {
     initMonaco(){
+      this.$emit('editorWillMount', this.monaco)
       const { value, language, theme, options } = this;
       this.editor = monaco.editor[this.diffEditor ? 'createDiffEditor' : 'create'](this.$el, {
         value: value,
@@ -49,6 +55,17 @@ export default defineComponent({
         ...options
       });
       this.diffEditor && this._setModel(this.value, this.original);
+
+      // @event `change`
+      const editor = this._getEditor()
+      editor.onDidChangeModelContent(event => {
+        const value = editor.getValue()
+        if (this.value !== value) {
+          this.$emit('change', value, event)
+        }
+      })
+
+      this.$emit('editorDidMount', this.editor)
     },
     _setModel(value, original) {
       const { language } = this;

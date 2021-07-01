@@ -40,11 +40,6 @@ export default defineComponent({
       theme: 'vs'
     }
   },
-  mounted(){
-    setTimeout(()=>{
-      this.original='vs-dark'
-    },2000)
-  }
 })
 </script>
 

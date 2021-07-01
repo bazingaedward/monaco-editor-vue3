@@ -14,12 +14,12 @@ const config = {
       formats: ['es', 'umd']
     },
     rollupOptions: {
-      // external: ['monaco-editor'],
-      // output: {
-      //   globals: {
-      //     "monaco-editor": "monaco-editor"
-      //   }
-      // }
+      external: ['monaco-editor'],
+      output: {
+        globals: {
+          "monaco-editor": "monaco-editor"
+        }
+      }
     }
   },
   plugins: [
