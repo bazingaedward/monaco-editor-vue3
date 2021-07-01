@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "monaco-editor": "^0.25.2",
-    "vue": "^3.0.5"
+    "vue": "^3.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
