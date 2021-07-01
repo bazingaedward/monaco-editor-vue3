@@ -1,5 +1,5 @@
-1. ts
-2. monaco api
-3. vue3 优化
-4. readme: readme_zh.md
-5. test&publish
+- ts
+- readme: readme_zh.md
+- Add test&publish to npm
+- vite rollup bundler: 1.5m -> ?
+- rollup-plugin-monaco-editor

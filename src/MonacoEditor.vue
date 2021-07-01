@@ -2,7 +2,7 @@
   <div class="monaco-editor-vue3" :style="style"></div>
 </template>
 
-<script>
+<script >
 import { defineComponent, computed, toRefs } from 'vue'
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api'
 
@@ -35,14 +35,12 @@ export default defineComponent({
   },
   mounted() {
     this.initMonaco()
-    console.log(this.editor)
   },
   beforeDestroy() {
     this.editor.dispose();
   },
   methods: {
     initMonaco(){
-      // init monaco editor
       const { value, language, theme, options } = this;
       this.editor = monaco.editor[this.diffEditor ? 'createDiffEditor' : 'create'](this.$el, {
         value: value,
@@ -53,7 +51,6 @@ export default defineComponent({
       this.diffEditor && this._setModel(this.value, this.original);
     },
     _setModel(value, original) {
-      //diff模式下设置model
       const { language } = this;
       const originalModel = monaco.editor.createModel(original, language);
       const modifiedModel = monaco.editor.createModel(value, language);

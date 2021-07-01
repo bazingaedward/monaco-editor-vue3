@@ -1,11 +1,11 @@
 <template>
-  <!-- <MonacoEditor
-    :theme="theme"
+  <MonacoEditor
+    theme="vs"
     :options="options"
     language="javascript"
     :width="800"
     :height="800"
-  ></MonacoEditor> -->
+  ></MonacoEditor>
   <MonacoEditor
     theme="vs"
     :options="options"
@@ -18,9 +18,9 @@
   ></MonacoEditor>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
-import MonacoEditor from './MonacoEditor.vue'
+import MonacoEditor from '../MonacoEditor.vue'
 
 export default defineComponent({
   name: 'App',
