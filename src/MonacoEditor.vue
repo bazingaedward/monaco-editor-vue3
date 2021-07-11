@@ -30,7 +30,8 @@ export default defineComponent({
       const fixedHeight = height.value.toString().includes('%')? height.value : `${height.value}px`
       return {
         width: fixedWidth,
-        height: fixedHeight
+        height: fixedHeight,
+        'text-align': 'left'
       }
     })
 
