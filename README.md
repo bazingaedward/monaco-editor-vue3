@@ -1,6 +1,5 @@
 # Monaco Editor Vue3
 
-[![NPM version](https://img.shields.io/npm/v/vue-monaco.svg?style=flat)](https://npmjs.com/package/monaco-editor-vue3) [![NPM downloads](https://img.shields.io/npm/dm/vue-monaco.svg?style=flat)](https://npmjs.com/package/monaco-editor-vue3) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/bazingaedward/donate)
 
 [Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code, now it's available as a Vue3 component `<MonacoEditor>` thanks to this project.
 
@@ -73,6 +72,36 @@ export default {
   height: 800px;
 }
 </style>
+```
+
+### Use ESM version with rollup
+
+Use [rollup-plugin-monaco-editor](https://github.com/chengcyber/rollup-plugin-monaco-editor):
+
+```js
+// rollup.config.js
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import postcss from 'rollup-plugin-postcss';
+import commonjs from '@rollup/plugin-commonjs';
+import monaco from 'rollup-plugin-monaco-editor';
+
+export default {
+  output: {
+    format: 'es',
+    dir: 'dist',
+  },
+  // ...other config
+  plugins: [
+    // ...other plugins
+    // handle .css files
+    postcss(),
+    monaco({
+      languages: ['json'],
+    }),
+    nodeResolve(),
+    commonjs(),
+  ],
+};
 ```
 
 

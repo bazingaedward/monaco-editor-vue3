@@ -2,9 +2,24 @@
   <div class="monaco-editor-vue3" :style="style"></div>
 </template>
 
-<script >
+<script lang="ts">
 import { defineComponent, computed, toRefs } from 'vue'
 import * as monaco from 'monaco-editor'
+
+import type { PropType } from 'vue'
+
+type ThemeType = PropType<'vs' | 'vs-dark' | 'hc-black'>
+
+interface IMonacoEditorV3Props {
+  diffEditor: boolean
+  width: number | string
+  height: number | string
+  original: string
+  value: string
+  language: string
+  theme: ThemeType
+
+}
 
 export default defineComponent({
   name: "MonacoEditor",
@@ -34,7 +49,6 @@ export default defineComponent({
         'text-align': 'left'
       }
     })
-
     return {
       style
     }
@@ -123,9 +137,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style lang="scss" scoped>
-.monaco-editor-vue3 {
-  text-align: left;
-}
-</style>

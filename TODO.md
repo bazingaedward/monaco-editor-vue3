@@ -1,4 +1,2 @@
 - typescript support
-- add README_CN.md
-- Add test&publish to npm
-- add plugin for vite: `rollup-plugin-monaco-editor-vue3`
+- readme: badge
