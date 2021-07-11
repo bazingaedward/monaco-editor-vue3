@@ -1,4 +1,7 @@
 # Monaco Editor Vue3
+
+[![NPM version](https://img.shields.io/npm/v/vue-monaco.svg?style=flat)](https://npmjs.com/package/monaco-editor-vue3) [![NPM downloads](https://img.shields.io/npm/dm/vue-monaco.svg?style=flat)](https://npmjs.com/package/monaco-editor-vue3) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/bazingaedward/donate)
+
 [Monaco Editor](https://github.com/Microsoft/monaco-editor) is the code editor that powers VS Code, now it's available as a Vue3 component `<MonacoEditor>` thanks to this project.
 
 ## Install
