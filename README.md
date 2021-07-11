@@ -72,6 +72,72 @@ export default {
 </style>
 ```
 
+
+### Props
+- `width`: Editor width, eg: `800px` or `800`.
+- `height`: Editor height, eg: `800px` or `800`.
+- `options`: The [second argument](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) of [`monaco.editor.create`](https://microsoft.github.io/monaco-editor/api/modules/monaco.editor.html#create).
+- `value`: A shortcut to set `options.value`.
+- `theme`: A shortcut to set `options.theme`.
+- `language`: A shortcut to set `options.language`.
+- `diffEditor`: `boolean` Indicate that this is a DiffEditor, `false` by default.
+- `original`: if `diffEditor` set `true`, this will be used .
+
+### Component Events
+
+#### `editorWillMount`
+
+- Params:
+  - `monaco`: [`monaco module`](https://microsoft.github.io/monaco-editor/api/index.html)
+
+Called before mounting the editor.
+
+#### `editorDidMount`
+
+- Params:
+  - `editor`: [`IStandaloneCodeEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) for normal editor, [`IStandaloneDiffEditor`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonediffeditor.html) for diff editor.
+
+Called when the editor is mounted.
+
+#### `change`
+
+Editor value is updated.
+
+- Params:
+  - `value`: New editor value.
+  - `event`: The `event` from [`onDidChangeModelContent`](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html#ondidchangemodelcontent).
+
+#### Editor Events
+
+You can listen to the editor events directly like this:
+
+```vue
+<template>
+  <MonacoEditor v-model="code" @editorDidMount="editorDidMount" />
+</template>
+
+<script>
+export default {
+  methods: {
+    editorDidMount(editor) {
+      // Listen to `scroll` event
+      editor.onDidScrollChange(e => {
+        console.log(e)
+      })
+    }
+  },
+
+  data() {
+    return {
+      code: '...'
+    }
+  }
+}
+</script>
+```
+
+Refer to [this page](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) for all editor events.
+
 ## Contributing
 
 1. Fork it!

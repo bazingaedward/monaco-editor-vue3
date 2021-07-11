@@ -1,13 +1,6 @@
 {
   "name": "monaco-editor-vue3",
   "version": "0.1.1",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "test": "jest",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s"
-  },
   "keywords": [
     "Vue3",
     "monaco",
@@ -19,6 +12,18 @@
     "name": "邱凯翔",
     "email": "qkx2010@aliyun.com",
     "url": "https://github.com/bazingaedward"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "bazingaedward/monaco-editor-vue3",
+    "type": "git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "jest",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
     "monaco-editor": "^0.25.2",
