@@ -2,23 +2,9 @@
   <div class="monaco-editor-vue3" :style="style"></div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, computed, toRefs } from 'vue'
 import * as monaco from 'monaco-editor'
-
-import type { PropType } from 'vue'
-
-type ThemeType = PropType<'vs' | 'vs-dark' | 'hc-black'>
-
-interface IMonacoEditorV3Props {
-  diffEditor: boolean
-  width: number | string
-  height: number | string
-  original: string
-  value: string
-  language: string
-  theme: ThemeType
-}
 
 export default defineComponent({
   name: "MonacoEditor",
@@ -37,7 +23,7 @@ export default defineComponent({
     'editorDidMount',
     'change'
   ],
-  setup(props: IMonacoEditorV3Props){
+  setup(props){
     const { width, height } = toRefs(props)
     const style = computed(()=>{
       const fixedWidth = width.value.toString().includes('%') ? width.value : `${width.value}px`
