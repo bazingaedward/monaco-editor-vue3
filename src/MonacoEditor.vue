@@ -18,7 +18,6 @@ interface IMonacoEditorV3Props {
   value: string
   language: string
   theme: ThemeType
-
 }
 
 export default defineComponent({
@@ -38,7 +37,7 @@ export default defineComponent({
     'editorDidMount',
     'change'
   ],
-  setup(props){
+  setup(props: IMonacoEditorV3Props){
     const { width, height } = toRefs(props)
     const style = computed(()=>{
       const fixedWidth = width.value.toString().includes('%') ? width.value : `${width.value}px`
