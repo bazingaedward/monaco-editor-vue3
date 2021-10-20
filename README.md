@@ -46,11 +46,17 @@ Then use the component:
 
 ```vue
 <template>
-  <MonacoEditor 
-    class="editor" 
-    v-model="code" 
-    language="javascript" 
-  />
+  <MonacoEditor
+    theme="vs"
+    :options="options"
+    language="javascript"
+    :width="800"
+    :height="800"
+    :diffEditor="true"
+    :original="original"
+    :value="value"
+    @change="value = $event"
+  ></MonacoEditor>
 </template>
 
 <script>
@@ -172,6 +178,13 @@ export default {
 ```
 
 Refer to [this page](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) for all editor events.
+
+## Typescript
+create `monaco-editor-vue3.d.ts` in your root.
+```ts
+declare module "monaco-editor-vue3";
+```
+This will allow ts compilation without errors, but may not include all the types.
 
 ## Contributing
 
