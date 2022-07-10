@@ -25,19 +25,19 @@ import MonacoEditor from '../MonacoEditor.vue'
 export default defineComponent({
   name: 'App',
   components: {
-    MonacoEditor
+    MonacoEditor,
   },
-  data(){
+  data() {
     return {
       options: {
         colorDecorators: true,
         lineHeight: 24,
-        tabSize: 2
+        tabSize: 2,
       },
       original: 'hello',
       value: 'world',
       width: 800,
-      theme: 'vs'
+      theme: 'vs',
     }
   },
 })

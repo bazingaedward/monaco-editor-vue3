@@ -8,6 +8,7 @@
   ],
   "main": "./dist/monaco-editor-vue3.umd.js",
   "module": "./dist/monaco-editor-vue3.es.js",
+  "types": "./typings/monaco-editor.d.ts",
   "author": {
     "name": "邱凯翔",
     "email": "qkx2010@aliyun.com",
@@ -20,14 +21,14 @@
   },
   "scripts": {
     "dev": "vite",
+    "start": "yarn dev",
     "build": "vite build",
-    "serve": "vite preview",
     "test": "jest",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
     "monaco-editor": "^0.33.0",
-    "vue": "^3.1.2"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -37,17 +38,19 @@
     "@babel/preset-env": "^7.14.7",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
-    "@vitejs/plugin-vue": "^1.2.1",
+    "@vitejs/plugin-vue": "^2.3.3",
     "@vue/compiler-sfc": "^3.1.2",
     "@vue/test-utils": "^2.0.0-rc.8",
     "babel-jest": "26",
     "conventional-changelog-cli": "^2.1.1",
     "jest": "26",
     "jest-css-modules": "^2.1.0",
+    "postcss": "^8.4.14",
+    "rollup": "^2.76.0",
     "rollup-plugin-monaco-editor": "^0.0.7",
     "rollup-plugin-postcss": "^4.0.0",
     "sass": "^1.35.1",
-    "vite": "^2.1.5",
+    "vite": "^2.9.14",
     "vue-jest": "^5.0.0-alpha.10"
   }
 }

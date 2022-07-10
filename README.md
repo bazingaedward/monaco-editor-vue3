@@ -18,6 +18,12 @@ Or
 yarn add monaco-editor-vue3
 ```
 
+Or
+
+```bash
+pnpm add monaco-editor-vue3
+```
+
 ## Usage
 
 ### Use ESM version with webpack
@@ -60,7 +66,7 @@ Then use the component:
 </template>
 
 <script>
-import MonacoEditor from 'vue-monaco'
+import MonacoEditor from 'monaco-editor-vue3'
 
 export default {
   components: {

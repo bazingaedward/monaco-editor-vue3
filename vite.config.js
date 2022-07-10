@@ -9,7 +9,7 @@ import vue from '@vitejs/plugin-vue'
 const config = {
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/main.js'),
+      entry: path.resolve(__dirname, 'src/main.ts'),
       name: 'monaco-editor-vue3',
       formats: ['es', 'umd']
     },

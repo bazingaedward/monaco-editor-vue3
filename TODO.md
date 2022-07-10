@@ -1,2 +1,0 @@
-- typescript support
-- readme: badge
