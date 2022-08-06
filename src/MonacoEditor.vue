@@ -46,7 +46,7 @@ export default defineComponent({
   },
   methods: {
     initMonaco(){
-      this.$emit('editorWillMount', this.monaco)
+      this.$emit('editorWillMount', monaco)
       const { value, language, theme, options } = this;
       this.editor = monaco.editor[this.diffEditor ? 'createDiffEditor' : 'create'](this.$el, {
         value: value,
