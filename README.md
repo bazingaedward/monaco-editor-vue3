@@ -9,7 +9,7 @@
 ## Install
 
 ```bash
-npm install monaco-editor-vue3
+pnpm install monaco-editor-vue3
 ```
 
 Or
@@ -21,7 +21,7 @@ yarn add monaco-editor-vue3
 Or
 
 ```bash
-pnpm add monaco-editor-vue3
+npm i monaco-editor-vue3
 ```
 
 ## Usage

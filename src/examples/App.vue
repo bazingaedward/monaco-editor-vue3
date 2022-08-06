@@ -5,8 +5,9 @@
     language="javascript"
     :width="800"
     :height="800"
+    :value="test"
   ></MonacoEditor>
-  <MonacoEditor
+  <!-- <MonacoEditor
     theme="vs"
     :options="options"
     language="javascript"
@@ -15,7 +16,7 @@
     :diffEditor="true"
     :original="original"
     :value="value"
-  ></MonacoEditor>
+  ></MonacoEditor> -->
 </template>
 
 <script>
@@ -38,7 +39,13 @@ export default defineComponent({
       value: 'world',
       width: 800,
       theme: 'vs',
+      test: '',
     }
+  },
+  watch: {
+    test: function (val) {
+      console.log(val, 11)
+    },
   },
 })
 </script>
