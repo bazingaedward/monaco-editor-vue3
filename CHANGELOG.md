@@ -1,6 +1,6 @@
 ## [0.1.6](https://github.com/bazingaedward/monaco-editor-vue3/compare/v0.1.4...v0.1.6) (2022-08-08)
-
-
+* fix [v-model:value support](https://github.com/bazingaedward/monaco-editor-vue3/issues/5)
+* Docs added Vite Stackblitz Demo
 
 ## 0.1.1 (2021-07-01)
 
