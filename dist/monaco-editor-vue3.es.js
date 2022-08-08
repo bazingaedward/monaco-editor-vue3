@@ -562,15 +562,14 @@ const _sfc_main = defineComponent({
     value: String,
     language: { type: String, default: "javascript" },
     theme: { type: String, default: "vs" },
-    options: { type: Object, default() {
-      return {};
-    } }
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
+    }
   },
-  emits: [
-    "editorWillMount",
-    "editorDidMount",
-    "change"
-  ],
+  emits: ["editorWillMount", "editorDidMount", "change", "update:value"],
   setup(props) {
     const { width, height } = toRefs(props);
     const style = computed(() => {
@@ -594,7 +593,7 @@ const _sfc_main = defineComponent({
   },
   methods: {
     initMonaco() {
-      this.$emit("editorWillMount", this.monaco);
+      this.$emit("editorWillMount", monaco);
       const { value, language, theme, options } = this;
       this.editor = monaco.editor[this.diffEditor ? "createDiffEditor" : "create"](this.$el, {
         value,
@@ -604,10 +603,11 @@ const _sfc_main = defineComponent({
       });
       this.diffEditor && this._setModel(this.value, this.original);
       const editor = this._getEditor();
-      editor.onDidChangeModelContent((event) => {
+      editor && editor.onDidChangeModelContent((event) => {
         const value2 = editor.getValue();
         if (this.value !== value2) {
           this.$emit("change", value2, event);
+          this.$emit("update:value", value2);
         }
       });
       this.$emit("editorDidMount", this.editor);

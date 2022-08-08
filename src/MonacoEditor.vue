@@ -23,7 +23,7 @@ export default defineComponent({
       },
     },
   },
-  emits: ['editorWillMount', 'editorDidMount', 'change'],
+  emits: ['editorWillMount', 'editorDidMount', 'change', 'update:value'],
   setup(props) {
     const { width, height } = toRefs(props)
     const style = computed(() => {
@@ -51,7 +51,7 @@ export default defineComponent({
   },
   methods: {
     initMonaco() {
-      this.$emit('editorWillMount', this.monaco)
+      this.$emit('editorWillMount', monaco)
       const { value, language, theme, options } = this
       this.editor = monaco.editor[
         this.diffEditor ? 'createDiffEditor' : 'create'
@@ -70,6 +70,7 @@ export default defineComponent({
           const value = editor.getValue()
           if (this.value !== value) {
             this.$emit('change', value, event)
+            this.$emit('update:value', value)
           }
         })
 

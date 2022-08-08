@@ -24,6 +24,6 @@ const config = {
   },
   plugins: [
     vue(),
-  ]
+  ],
 }
 export default config
