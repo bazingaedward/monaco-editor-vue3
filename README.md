@@ -60,8 +60,7 @@ Then use the component:
     :height="800"
     :diffEditor="true"
     :original="original"
-    :value="value"
-    @change="value = $event"
+    v-model:value="value"
   ></MonacoEditor>
 </template>
 
@@ -88,6 +87,10 @@ export default {
 }
 </style>
 ```
+
+### Use ESM version with Vite
+
+[See Stackblitz Demo](https://stackblitz.com/edit/vitejs-vite-bfx1bj)
 
 ### Use ESM version with rollup
 
