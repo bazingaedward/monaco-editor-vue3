@@ -46,7 +46,7 @@ export default defineComponent({
   mounted() {
     this.initMonaco()
   },
-  beforeDestroy() {
+  beforeUnmount() {
     this.editor && this.editor.dispose()
   },
   methods: {
