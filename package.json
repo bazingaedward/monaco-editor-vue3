@@ -51,7 +51,7 @@
     "rollup-plugin-monaco-editor": "^0.0.7",
     "rollup-plugin-postcss": "^4.0.0",
     "sass": "^1.35.1",
-    "vite": "^2.9.14",
+    "vite": "^3.2.7",
     "vue-jest": "^5.0.0-alpha.10"
   }
 }

@@ -2,7 +2,9 @@
   <h3>Monaco Editor Vue3</h3>
 
   <div class="demo-title">Demo1: Simple Editor</div>
+  <div @click="handleTypeChange">change</div>
   <MonacoEditor
+    v-if="type === '1'"
     theme="vs"
     :options="options"
     language="javascript"
@@ -11,7 +13,7 @@
     v-model:value="test"
   ></MonacoEditor>
 
-  <div class="demo-title">Demo2: Diff Editor</div>
+  <!-- <div class="demo-title">Demo2: Diff Editor</div>
   <MonacoEditor
     theme="vs"
     :options="options"
@@ -21,7 +23,7 @@
     :diffEditor="true"
     :original="original"
     :value="value"
-  ></MonacoEditor>
+  ></MonacoEditor> -->
 </template>
 
 <script>
@@ -45,6 +47,8 @@ export default defineComponent({
       width: 800,
       theme: 'vs',
       test: '',
+      test2: '',
+      type: '1',
     }
   },
   watch: {
@@ -53,6 +57,13 @@ export default defineComponent({
     },
   },
   methods: {
+    handleTypeChange() {
+      if (this.type === '1') {
+        this.type = '2'
+      } else {
+        this.type = '1'
+      }
+    },
     handleChange(e) {
       console.log(e, 11)
     },
