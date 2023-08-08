@@ -1,3 +1,12 @@
+## [0.1.7](https://github.com/bazingaedward/monaco-editor-vue3/compare/v0.1.6...v0.1.7) (2023-08-08)
+
+
+### Features
+
+* add ts support ([4332962](https://github.com/bazingaedward/monaco-editor-vue3/commit/433296250f1223da388450fcfe7f53030f3c9c08))
+
+
+
 ## [0.1.6](https://github.com/bazingaedward/monaco-editor-vue3/compare/v0.1.4...v0.1.6) (2022-08-08)
 
 - fix [v-model:value support](https://github.com/bazingaedward/monaco-editor-vue3/issues/5)
