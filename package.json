@@ -1,13 +1,13 @@
 {
   "name": "monaco-editor-vue3",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "keywords": [
     "Vue3",
     "monaco",
     "monaco-editor"
   ],
   "main": "./dist/monaco-editor-vue3.umd.js",
-  "module": "./dist/monaco-editor-vue3.es.js",
+  "module": "./dist/monaco-editor-vue3.mjs",
   "types": "./dist/MonacoEditor.vue.d.ts",
   "author": {
     "name": "邱凯翔",
