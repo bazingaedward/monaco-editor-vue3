@@ -1,1 +1,162 @@
-(function(_,m){typeof exports=="object"&&typeof module!="undefined"?module.exports=m(require("monaco-editor")):typeof define=="function"&&define.amd?define(["monaco-editor"],m):(_=typeof globalThis!="undefined"?globalThis:_||self,_["monaco-editor-vue3"]=m(_["monaco-editor"]))})(this,function(_){"use strict";function m(t){if(t&&t.__esModule)return t;var e=Object.create(null,{[Symbol.toStringTag]:{value:"Module"}});return t&&Object.keys(t).forEach(function(n){if(n!=="default"){var i=Object.getOwnPropertyDescriptor(t,n);Object.defineProperty(e,n,i.get?i:{enumerable:!0,get:function(){return t[n]}})}}),e.default=t,Object.freeze(e)}var f=m(_);function E(t){if(d(t)){const e={};for(let n=0;n<t.length;n++){const i=t[n],s=g(i)?q(i):E(i);if(s)for(const o in s)e[o]=s[o]}return e}else{if(g(t))return t;if(k(t))return t}}const K=/;(?![^(]*\))/g,Y=/:(.+)/;function q(t){const e={};return t.split(K).forEach(n=>{if(n){const i=n.split(Y);i.length>1&&(e[i[0].trim()]=i[1].trim())}}),e}function V(t){let e="";if(g(t))e=t;else if(d(t))for(let n=0;n<t.length;n++){const i=V(t[n]);i&&(e+=i+" ")}else if(k(t))for(const n in t)t[n]&&(e+=n+" ");return e.trim()}const G=[],H=()=>{},U=/^on[^a-z]/,J=t=>U.test(t),I=Object.assign,d=Array.isArray,p=t=>typeof t=="function",g=t=>typeof t=="string",k=t=>t!==null&&typeof t=="object";let Q;function X(t,e=Q){e&&e.active&&e.effects.push(t)}const Z=t=>{const e=new Set(t);return e.w=0,e.n=0,e},x=t=>(t.w&h)>0,N=t=>(t.n&h)>0,tt=({deps:t})=>{if(t.length)for(let e=0;e<t.length;e++)t[e].w|=h},et=t=>{const{deps:e}=t;if(e.length){let n=0;for(let i=0;i<e.length;i++){const s=e[i];x(s)&&!N(s)?s.delete(t):e[n++]=s,s.w&=~h,s.n&=~h}e.length=n}};let y=0,h=1;const v=30;let u;class nt{constructor(e,n=null,i){this.fn=e,this.scheduler=n,this.active=!0,this.deps=[],this.parent=void 0,X(this,i)}run(){if(!this.active)return this.fn();let e=u,n=M;for(;e;){if(e===this)return;e=e.parent}try{return this.parent=u,u=this,M=!0,h=1<<++y,y<=v?tt(this):T(this),this.fn()}finally{y<=v&&et(this),h=1<<--y,u=this.parent,M=n,this.parent=void 0,this.deferStop&&this.stop()}}stop(){u===this?this.deferStop=!0:this.active&&(T(this),this.onStop&&this.onStop(),this.active=!1)}}function T(t){const{deps:e}=t;if(e.length){for(let n=0;n<e.length;n++)e[n].delete(t);e.length=0}}let M=!0;function it(t,e){let n=!1;y<=v?N(t)||(t.n|=h,n=!x(t)):n=!t.has(u),n&&(t.add(u),u.deps.push(t))}function st(t,e){const n=d(t)?t:[...t];for(const i of n)i.computed&&j(i);for(const i of n)i.computed||j(i)}function j(t,e){(t!==u||t.allowRecurse)&&(t.scheduler?t.scheduler():t.run())}function D(t){return $(t)?D(t.__v_raw):!!(t&&t.__v_isReactive)}function $(t){return!!(t&&t.__v_isReadonly)}function z(t){return D(t)||$(t)}function b(t){const e=t&&t.__v_raw;return e?b(e):t}function ot(t){M&&u&&(t=b(t),it(t.dep||(t.dep=Z())))}function lt(t,e){t=b(t),t.dep&&st(t.dep)}function A(t){return!!(t&&t.__v_isRef===!0)}function rt(t){const e=d(t)?new Array(t.length):{};for(const n in t)e[n]=at(t,n);return e}class ct{constructor(e,n,i){this._object=e,this._key=n,this._defaultValue=i,this.__v_isRef=!0}get value(){const e=this._object[this._key];return e===void 0?this._defaultValue:e}set value(e){this._object[this._key]=e}}function at(t,e,n){const i=t[e];return A(i)?i:new ct(t,e,n)}class ut{constructor(e,n,i,s){this._setter=n,this.dep=void 0,this.__v_isRef=!0,this._dirty=!0,this.effect=new nt(e,()=>{this._dirty||(this._dirty=!0,lt(this))}),this.effect.computed=this,this.effect.active=this._cacheable=!s,this.__v_isReadonly=i}get value(){const e=b(this);return ot(e),(e._dirty||!e._cacheable)&&(e._dirty=!1,e._value=e.effect.run()),e._value}set value(e){this._setter(e)}}function ft(t,e,n=!1){let i,s;const o=p(t);return o?(i=t,s=H):(i=t.get,s=t.set),new ut(i,s,o||!s,n)}let S=null,dt=null;const ht=t=>t.__isSuspense;function gt(t){return p(t)?{setup:t,name:t.name}:t}const _t=Symbol(),pt=t=>t.__isTeleport,B=Symbol(void 0),mt=Symbol(void 0),yt=Symbol(void 0),R=[];let a=null;function St(t=!1){R.push(a=t?null:[])}function Et(){R.pop(),a=R[R.length-1]||null}function kt(t){return t.dynamicChildren=a||G,Et(),a&&a.push(t),t}function Mt(t,e,n,i,s,o){return kt(W(t,e,n,i,s,o,!0))}function bt(t){return t?t.__v_isVNode===!0:!1}const L="__vInternal",P=({key:t})=>t!=null?t:null,C=({ref:t,ref_key:e,ref_for:n})=>t!=null?g(t)||A(t)||p(t)?{i:S,r:t,k:e,f:!!n}:t:null;function W(t,e=null,n=null,i=0,s=null,o=t===B?0:1,l=!1,r=!1){const c={__v_isVNode:!0,__v_skip:!0,type:t,props:e,key:e&&P(e),ref:e&&C(e),scopeId:dt,slotScopeIds:null,children:n,component:null,suspense:null,ssContent:null,ssFallback:null,dirs:null,transition:null,el:null,anchor:null,target:null,targetAnchor:null,staticCount:0,shapeFlag:o,patchFlag:i,dynamicProps:s,dynamicChildren:null,appContext:null};return r?(F(c,n),o&128&&t.normalize(c)):n&&(c.shapeFlag|=g(n)?8:16),!l&&a&&(c.patchFlag>0||o&6)&&c.patchFlag!==32&&a.push(c),c}const Rt=Ct;function Ct(t,e=null,n=null,i=0,s=null,o=!1){if((!t||t===_t)&&(t=yt),bt(t)){const r=O(t,e,!0);return n&&F(r,n),!o&&a&&(r.shapeFlag&6?a[a.indexOf(t)]=r:a.push(r)),r.patchFlag|=-2,r}if(Ft(t)&&(t=t.__vccOpts),e){e=wt(e);let{class:r,style:c}=e;r&&!g(r)&&(e.class=V(r)),k(c)&&(z(c)&&!d(c)&&(c=I({},c)),e.style=E(c))}const l=g(t)?1:ht(t)?128:pt(t)?64:k(t)?4:p(t)?2:0;return W(t,e,n,i,s,l,o,!0)}function wt(t){return t?z(t)||L in t?I({},t):t:null}function O(t,e,n=!1){const{props:i,ref:s,patchFlag:o,children:l}=t,r=e?vt(i||{},e):i;return{__v_isVNode:!0,__v_skip:!0,type:t.type,props:r,key:r&&P(r),ref:e&&e.ref?n&&s?d(s)?s.concat(C(e)):[s,C(e)]:C(e):s,scopeId:t.scopeId,slotScopeIds:t.slotScopeIds,children:l,target:t.target,targetAnchor:t.targetAnchor,staticCount:t.staticCount,shapeFlag:t.shapeFlag,patchFlag:e&&t.type!==B?o===-1?16:o|16:o,dynamicProps:t.dynamicProps,dynamicChildren:t.dynamicChildren,appContext:t.appContext,dirs:t.dirs,transition:t.transition,component:t.component,suspense:t.suspense,ssContent:t.ssContent&&O(t.ssContent),ssFallback:t.ssFallback&&O(t.ssFallback),el:t.el,anchor:t.anchor}}function Vt(t=" ",e=0){return Rt(mt,null,t,e)}function F(t,e){let n=0;const{shapeFlag:i}=t;if(e==null)e=null;else if(d(e))n=16;else if(typeof e=="object")if(i&65){const s=e.default;s&&(s._c&&(s._d=!1),F(t,s()),s._c&&(s._d=!0));return}else{n=32;const s=e._;!s&&!(L in e)?e._ctx=S:s===3&&S&&(S.slots._===1?e._=1:(e._=2,t.patchFlag|=1024))}else p(e)?(e={default:e,_ctx:S},n=32):(e=String(e),i&64?(n=16,e=[Vt(e)]):n=8);t.children=e,t.shapeFlag|=n}function vt(...t){const e={};for(let n=0;n<t.length;n++){const i=t[n];for(const s in i)if(s==="class")e.class!==i.class&&(e.class=V([e.class,i.class]));else if(s==="style")e.style=E([e.style,i.style]);else if(J(s)){const o=e[s],l=i[s];l&&o!==l&&!(d(o)&&o.includes(l))&&(e[s]=o?[].concat(o,l):l)}else s!==""&&(e[s]=i[s])}return e}let Ot=!1;function Ft(t){return p(t)&&"__vccOpts"in t}const It=(t,e)=>ft(t,e,Ot);var xt=(t,e)=>{const n=t.__vccOpts||t;for(const[i,s]of e)n[i]=s;return n};const Nt=gt({name:"MonacoEditor",props:{diffEditor:{type:Boolean,default:!1},width:{type:[String,Number],default:"100%"},height:{type:[String,Number],default:"100%"},original:String,value:String,language:{type:String,default:"javascript"},theme:{type:String,default:"vs"},options:{type:Object,default(){return{}}}},emits:["editorWillMount","editorDidMount","change","update:value"],setup(t){const{width:e,height:n}=rt(t);return{style:It(()=>{const s=e.value.toString().includes("%")?e.value:`${e.value}px`,o=n.value.toString().includes("%")?n.value:`${n.value}px`;return{width:s,height:o,"text-align":"left"}})}},mounted(){this.initMonaco()},beforeDestroy(){this.editor&&this.editor.dispose()},methods:{initMonaco(){this.$emit("editorWillMount",f);const{value:t,language:e,theme:n,options:i}=this;this.editor=f.editor[this.diffEditor?"createDiffEditor":"create"](this.$el,{value:t,language:e,theme:n,...i}),this.diffEditor&&this._setModel(this.value,this.original);const s=this._getEditor();s&&s.onDidChangeModelContent(o=>{const l=s.getValue();this.value!==l&&(this.$emit("change",l,o),this.$emit("update:value",l))}),this.$emit("editorDidMount",this.editor)},_setModel(t,e){const{language:n}=this,i=f.editor.createModel(e,n),s=f.editor.createModel(t,n);this.editor.setModel({original:i,modified:s})},_setValue(t){let e=this._getEditor();if(e)return e.setValue(t)},_getValue(){let t=this._getEditor();return t?t.getValue():""},_getEditor(){return this.editor?this.diffEditor?this.editor.modifiedEditor:this.editor:null},_setOriginal(){const{original:t}=this.editor.getModel();t.setValue(this.original)}},watch:{options:{deep:!0,handler(t){this.editor.updateOptions(t)}},value(){this.value!==this._getValue()&&this._setValue(this.value)},original(){this._setOriginal()},language(){if(!!this.editor)if(this.diffEditor){const{original:t,modified:e}=this.editor.getModel();f.editor.setModelLanguage(t,this.language),f.editor.setModelLanguage(e,this.language)}else f.editor.setModelLanguage(this.editor.getModel(),this.language)},theme(){f.editor.setTheme(this.theme)}}});function Tt(t,e,n,i,s,o){return St(),Mt("div",{class:"monaco-editor-vue3",style:E(t.style)},null,4)}var w=xt(Nt,[["render",Tt]]);return w.install=t=>{t.component(w.name,w)},w});
+(function(global, factory) {
+  typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory(require("vue"), require("monaco-editor")) : typeof define === "function" && define.amd ? define(["vue", "monaco-editor"], factory) : (global = typeof globalThis !== "undefined" ? globalThis : global || self, global["monaco-editor-vue3"] = factory(global.Vue, global["monaco-editor"]));
+})(this, function(vue, monaco) {
+  "use strict";
+  function _interopNamespace(e) {
+    if (e && e.__esModule)
+      return e;
+    const n = Object.create(null, { [Symbol.toStringTag]: { value: "Module" } });
+    if (e) {
+      for (const k in e) {
+        if (k !== "default") {
+          const d = Object.getOwnPropertyDescriptor(e, k);
+          Object.defineProperty(n, k, d.get ? d : {
+            enumerable: true,
+            get: () => e[k]
+          });
+        }
+      }
+    }
+    n.default = e;
+    return Object.freeze(n);
+  }
+  const monaco__namespace = /* @__PURE__ */ _interopNamespace(monaco);
+  const _export_sfc = (sfc, props) => {
+    const target = sfc.__vccOpts || sfc;
+    for (const [key, val] of props) {
+      target[key] = val;
+    }
+    return target;
+  };
+  const _sfc_main = vue.defineComponent({
+    name: "MonacoEditor",
+    props: {
+      diffEditor: { type: Boolean, default: false },
+      width: { type: [String, Number], default: "100%" },
+      height: { type: [String, Number], default: "100%" },
+      original: String,
+      value: String,
+      language: { type: String, default: "javascript" },
+      theme: { type: String, default: "vs" },
+      options: {
+        type: Object,
+        default() {
+          return {};
+        }
+      }
+    },
+    emits: ["editorWillMount", "editorDidMount", "change", "update:value"],
+    setup(props) {
+      const { width, height } = vue.toRefs(props);
+      const style = vue.computed(() => {
+        const fixedWidth = width.value.toString().includes("%") ? width.value : `${width.value}px`;
+        const fixedHeight = height.value.toString().includes("%") ? height.value : `${height.value}px`;
+        return {
+          width: fixedWidth,
+          height: fixedHeight,
+          "text-align": "left"
+        };
+      });
+      return {
+        style
+      };
+    },
+    mounted() {
+      this.initMonaco();
+    },
+    beforeUnmount() {
+      this.editor && this.editor.dispose();
+    },
+    methods: {
+      initMonaco() {
+        this.$emit("editorWillMount", monaco__namespace);
+        const { value, language, theme, options } = this;
+        this.editor = monaco__namespace.editor[this.diffEditor ? "createDiffEditor" : "create"](this.$el, {
+          value,
+          language,
+          theme,
+          ...options
+        });
+        this.diffEditor && this._setModel(this.value, this.original);
+        const editor = this._getEditor();
+        editor && editor.onDidChangeModelContent((event) => {
+          const value2 = editor.getValue();
+          if (this.value !== value2) {
+            this.$emit("change", value2, event);
+            this.$emit("update:value", value2);
+          }
+        });
+        this.$emit("editorDidMount", this.editor);
+      },
+      _setModel(value, original) {
+        const { language } = this;
+        const originalModel = monaco__namespace.editor.createModel(original, language);
+        const modifiedModel = monaco__namespace.editor.createModel(value, language);
+        this.editor.setModel({
+          original: originalModel,
+          modified: modifiedModel
+        });
+      },
+      _setValue(value) {
+        let editor = this._getEditor();
+        if (editor)
+          return editor.setValue(value);
+      },
+      _getValue() {
+        let editor = this._getEditor();
+        if (!editor)
+          return "";
+        return editor.getValue();
+      },
+      _getEditor() {
+        if (!this.editor)
+          return null;
+        return this.diffEditor ? this.editor.modifiedEditor : this.editor;
+      },
+      _setOriginal() {
+        const { original } = this.editor.getModel();
+        original.setValue(this.original);
+      }
+    },
+    watch: {
+      options: {
+        deep: true,
+        handler(options) {
+          this.editor.updateOptions(options);
+        }
+      },
+      value() {
+        this.value !== this._getValue() && this._setValue(this.value);
+      },
+      original() {
+        this._setOriginal();
+      },
+      language() {
+        if (!this.editor)
+          return;
+        if (this.diffEditor) {
+          const { original, modified } = this.editor.getModel();
+          monaco__namespace.editor.setModelLanguage(original, this.language);
+          monaco__namespace.editor.setModelLanguage(modified, this.language);
+        } else
+          monaco__namespace.editor.setModelLanguage(this.editor.getModel(), this.language);
+      },
+      theme() {
+        monaco__namespace.editor.setTheme(this.theme);
+      }
+    }
+  });
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("div", {
+      class: "monaco-editor-vue3",
+      style: vue.normalizeStyle(_ctx.style)
+    }, null, 4);
+  }
+  const MonacoEditor = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
+  const main = {
+    install: (app) => {
+      app.component(MonacoEditor.name, MonacoEditor);
+    }
+  };
+  return main;
+});

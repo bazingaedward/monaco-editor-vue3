@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 declare module '*.vue' {
   import { App, defineComponent } from 'vue'
   const component: ReturnType<typeof defineComponent> & {
@@ -15,7 +16,5 @@ declare type Indexable<T> = {
 }
 
 declare type Hash<T> = Indexable<T>
-
-declare type TimeoutHandle = ReturnType<typeof global.setTimeout>
 
 declare type ComponentSize = 'large' | 'medium' | 'small' | 'mini'
