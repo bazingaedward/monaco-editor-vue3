@@ -4,3 +4,4 @@ dist-ssr
 *.local
 package-lock.json
 yarn.lock
+dist

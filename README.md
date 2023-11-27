@@ -90,7 +90,7 @@ export default {
 
 ### Use ESM version with Vite
 
-[See Stackblitz Demo](https://stackblitz.com/edit/vitejs-vite-bfx1bj)
+[See Stackblitz Demo](https://stackblitz.com/edit/vitejs-vite-e8jjho)
 
 ### Use ESM version with rollup
 
