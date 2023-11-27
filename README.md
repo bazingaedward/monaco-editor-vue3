@@ -1,4 +1,5 @@
 # Monaco Editor Vue3
+
 ![npm](https://img.shields.io/npm/v/monaco-editor-vue3)
 ![npm](https://img.shields.io/npm/dt/monaco-editor-vue3)
 ![NPM](https://img.shields.io/npm/l/monaco-editor-vue3)
@@ -32,7 +33,7 @@ Use [monaco-editor-webpack-plugin](https://github.com/Microsoft/monaco-editor-we
 
 ```js
 // webpack.config.js
-const MonacoEditorPlugin = require('monaco-editor-webpack-plugin')
+const MonacoEditorPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
   plugins: [
@@ -42,10 +43,10 @@ module.exports = {
       // Some language extensions like typescript are so huge that may impact build performance
       // e.g. Build full languages support with webpack 4.0 takes over 80 seconds
       // Languages are loaded on demand at runtime
-      languages: ['javascript', 'css', 'html', 'typescript']
-    })
-  ]
-}
+      languages: ['javascript', 'css', 'html', 'typescript'],
+    }),
+  ],
+};
 ```
 
 Then use the component:
@@ -65,19 +66,19 @@ Then use the component:
 </template>
 
 <script>
-import MonacoEditor from 'monaco-editor-vue3'
+import MonacoEditor from 'monaco-editor-vue3';
 
 export default {
   components: {
-    MonacoEditor
+    MonacoEditor,
   },
 
   data() {
     return {
-      code: 'const noop = () => {}'
-    }
-  }
-}
+      code: 'const noop = () => {}',
+    };
+  },
+};
 </script>
 
 <style>
@@ -90,7 +91,7 @@ export default {
 
 ### Use ESM version with Vite
 
-[See Stackblitz Demo](https://stackblitz.com/edit/vitejs-vite-bfx1bj)
+[See Stackblitz Demo](https://stackblitz.com/edit/vitejs-vite-e8jjho)
 
 ### Use ESM version with rollup
 
@@ -122,8 +123,8 @@ export default {
 };
 ```
 
-
 ### Props
+
 - `width`: Editor width, eg: `800px` or `800`.
 - `height`: Editor height, eg: `800px` or `800`.
 - `options`: The [second argument](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) of [`monaco.editor.create`](https://microsoft.github.io/monaco-editor/api/modules/monaco.editor.html#create).
@@ -171,28 +172,31 @@ export default {
   methods: {
     editorDidMount(editor) {
       // Listen to `scroll` event
-      editor.onDidScrollChange(e => {
-        console.log(e)
-      })
-    }
+      editor.onDidScrollChange((e) => {
+        console.log(e);
+      });
+    },
   },
 
   data() {
     return {
-      code: '...'
-    }
-  }
-}
+      code: '...',
+    };
+  },
+};
 </script>
 ```
 
 Refer to [this page](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.istandalonecodeeditor.html) for all editor events.
 
 ## Typescript
+
 create `monaco-editor-vue3.d.ts` in your root.
+
 ```ts
-declare module "monaco-editor-vue3";
+declare module 'monaco-editor-vue3';
 ```
+
 This will allow ts compilation without errors, but may not include all the types.
 
 ## Contributing
