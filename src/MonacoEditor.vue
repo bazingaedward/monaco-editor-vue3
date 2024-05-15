@@ -3,7 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import * as monaco from 'monaco-editor';
+import { MonacoEditorProps } from './typing';
+import { useEditor } from './hook';
 
 const props = withDefaults(defineProps<MonacoEditorProps>(), {
   diffEditor: false,
@@ -11,12 +12,12 @@ const props = withDefaults(defineProps<MonacoEditorProps>(), {
   height: '100%',
   language: 'javascript',
   theme: 'vs',
-  options: {},
+  options: () => ({}),
 });
 
 const emit = defineEmits(['editorWillMount', 'editorDidMount', 'change', 'update:value']);
 
-const { editor, container } = useEditor();
+const { editor, container } = useEditor(props, emit);
 
 const { width, height } = toRefs(props);
 const style = computed(() => {

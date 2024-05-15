@@ -4,6 +4,8 @@ export interface MonacoEditorProps {
   height: string | number;
   original: string;
   value: string;
+  theme: string;
   language: string;
   options: object;
+  // options: IStandaloneDiffEditorConstructionOptions & IStandaloneEditorConstructionOptions;
 }
