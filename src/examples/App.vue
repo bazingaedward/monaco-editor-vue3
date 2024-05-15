@@ -13,7 +13,7 @@
     v-model:value="test"
   ></MonacoEditor>
 
-  <!-- <div class="demo-title">Demo2: Diff Editor</div>
+  <div class="demo-title">Demo2: Diff Editor</div>
   <MonacoEditor
     theme="vs"
     :options="options"
@@ -23,18 +23,13 @@
     :diffEditor="true"
     :original="original"
     :value="value"
-  ></MonacoEditor> -->
+  ></MonacoEditor>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import MonacoEditor from '../MonacoEditor.vue'
-
+import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'App',
-  components: {
-    MonacoEditor,
-  },
   data() {
     return {
       options: {
@@ -49,26 +44,26 @@ export default defineComponent({
       test: '',
       test2: '',
       type: '1',
-    }
+    };
   },
   watch: {
     test: function (val) {
-      console.log(val, 11)
+      console.log(val, 11);
     },
   },
   methods: {
     handleTypeChange() {
       if (this.type === '1') {
-        this.type = '2'
+        this.type = '2';
       } else {
-        this.type = '1'
+        this.type = '1';
       }
     },
     handleChange(e) {
-      console.log(e, 11)
+      console.log(e, 11);
     },
   },
-})
+});
 </script>
 
 <style>

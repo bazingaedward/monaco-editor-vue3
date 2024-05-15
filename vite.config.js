@@ -1,33 +1,36 @@
-// vite.config.js
+import path from 'path';
+import vue from '@vitejs/plugin-vue';
+import dts from 'vite-plugin-dts';
+import { defineConfig } from 'vite';
+import AutoImport from 'unplugin-auto-import/vite';
 
-import path from 'path'
-import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts'
-
-/**
- * @type {import('vite').UserConfig}
- */
-const config = {
+export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/main.ts'),
+      entry: path.resolve(__dirname, 'src/MonacoEditor.vue'),
       name: 'monaco-editor-vue3',
-      formats: ['es', 'umd']
+      fileName: 'index',
     },
     rollupOptions: {
       external: ['monaco-editor', 'vue'],
       output: {
         globals: {
-          "monaco-editor": "monaco-editor",
-          "vue": "Vue"
-        }
-      }
-    }
+          'monaco-editor': 'monaco-editor',
+          vue: 'Vue',
+        },
+      },
+    },
   },
   plugins: [
     vue(),
-    dts()
+    dts({ rollupTypes: true }),
+    AutoImport({
+      dts: true,
+      imports: ['vue'],
+      eslintrc: {
+        enabled: true, // <-- this
+      },
+    }),
   ],
-}
-export default config
+});
