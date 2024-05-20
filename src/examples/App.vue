@@ -2,19 +2,17 @@
   <h3>Monaco Editor Vue3</h3>
 
   <div class="demo-title">Demo1: Simple Editor</div>
-  <div @click="handleTypeChange">change</div>
   <MonacoEditor
-    v-if="type === '1'"
     theme="vs"
     :options="options"
     language="javascript"
     :width="800"
     :height="600"
-    v-model:value="test"
+    v-model:value="text"
   ></MonacoEditor>
 
   <div class="demo-title">Demo2: Diff Editor</div>
-  <MonacoEditor
+  <!-- <MonacoEditor
     theme="vs"
     :options="options"
     language="javascript"
@@ -23,47 +21,18 @@
     :diffEditor="true"
     :original="original"
     :value="value"
-  ></MonacoEditor>
+  ></MonacoEditor> -->
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'App',
-  data() {
-    return {
-      options: {
-        colorDecorators: true,
-        lineHeight: 24,
-        tabSize: 2,
-      },
-      original: 'hello',
-      value: 'world',
-      width: 800,
-      theme: 'vs',
-      test: '',
-      test2: '',
-      type: '1',
-    };
-  },
-  watch: {
-    test: function (val) {
-      console.log(val, 11);
-    },
-  },
-  methods: {
-    handleTypeChange() {
-      if (this.type === '1') {
-        this.type = '2';
-      } else {
-        this.type = '1';
-      }
-    },
-    handleChange(e) {
-      console.log(e, 11);
-    },
-  },
-});
+<script setup lang="ts">
+const options = {
+  colorDecorators: true,
+  lineHeight: 24,
+  tabSize: 2,
+};
+const type = ref('1');
+const original = ref('hello');
+const text = ref('world');
 </script>
 
 <style>

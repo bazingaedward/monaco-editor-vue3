@@ -42,6 +42,7 @@ export const useEditor = (props: MonacoEditorProps, emit: any) => {
 
       // 注册内容变化监听事件
       editorRef.value.onDidChangeModelContent((event) => {
+        debugger;
         const value = (editorRef.value as editor.IStandaloneCodeEditor).getValue();
         if (props.value !== value) {
           emit('change', value, event);
@@ -54,8 +55,9 @@ export const useEditor = (props: MonacoEditorProps, emit: any) => {
 
     // 监听options的变化,同步更新
     watch(
-      props.options,
+      () => props.options,
       (opt) => {
+        if (!opt) return;
         editorRef.value?.updateOptions(opt);
       },
       {

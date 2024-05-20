@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<MonacoEditorProps>(), {
   height: '100%',
   language: 'javascript',
   theme: 'vs',
+  value: '',
   options: () => ({}),
 });
 
@@ -20,6 +21,7 @@ const emit = defineEmits(['editorWillMount', 'editorDidMount', 'change', 'update
 const { editor, container } = useEditor(props, emit);
 
 const { width, height } = toRefs(props);
+
 const style = computed(() => {
   const fixedWidth = width.value.toString().includes('%') ? width.value : `${width.value}px`;
   const fixedHeight = height.value.toString().includes('%') ? height.value : `${height.value}px`;
