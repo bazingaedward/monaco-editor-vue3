@@ -4,5 +4,6 @@ dist-ssr
 *.local
 package-lock.json
 yarn.lock
-/dist
+dist
+docs/.vitepress/dist
 docs/.vitepress/cache
