@@ -7,16 +7,13 @@
   ],
   "main": "./dist/monaco-editor-vue3.umd.js",
   "module": "./dist/monaco-editor-vue3.mjs",
-  "types": "./dist/index.d.ts",
-  "author": {
-    "name": "邱凯翔",
-    "email": "qkx2010@aliyun.com",
-    "url": "https://github.com/bazingaedward"
-  },
-  "files": [
-    "dist"
-  ],
+  "types": "./dist/MonacoEditor.vue.d.ts",
+  "author": "Edward Qiu",
   "license": "MIT",
+  "homepage": "https://bazingaedward.github.io/monaco-editor-vue3/",
+  "bugs": {
+    "url": "https://github.com/bazingaedward/monaco-editor-vue3/issues"
+  },
   "repository": {
     "url": "bazingaedward/monaco-editor-vue3",
     "type": "git"
