@@ -33,6 +33,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
+  "packageManager": "pnpm@8.15.1",
   "peerDependencies": {
     "monaco-editor": ">= 0.25.0 < 1",
     "vue": "^3"

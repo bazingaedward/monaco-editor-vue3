@@ -39,6 +39,7 @@ jobs:
         with:
           node-version: 20
           cache: pnpm # 或 pnpm / yarn
+          cache-dependency-path: 'package.json'
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
