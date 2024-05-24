@@ -127,7 +127,7 @@ export default {
 
 - `width`: Editor width, eg: `800px` or `800`.
 - `height`: Editor height, eg: `800px` or `800`.
-- `options`: The [second argument](https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditorconstructionoptions.html) of [`monaco.editor.create`](https://microsoft.github.io/monaco-editor/api/modules/monaco.editor.html#create).
+- `options`: The [second argument](https://microsoft.github.io/monaco-editor/typedoc/interfaces/editor.IStandaloneEditorConstructionOptions.html) of [`monaco.editor.create`](https://microsoft.github.io/monaco-editor/typedoc/functions/editor.create.html).
 - `value`: A shortcut to set `options.value`.
 - `theme`: A shortcut to set `options.theme`.
 - `language`: A shortcut to set `options.language`.
