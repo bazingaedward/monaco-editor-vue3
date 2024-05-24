@@ -9,6 +9,7 @@
   "main": "./dist/monaco-editor-vue3.umd.js",
   "module": "./dist/monaco-editor-vue3.mjs",
   "types": "./dist/MonacoEditor.vue.d.ts",
+  "homepage": "https://bazingaedward.github.io/monaco-editor-vue3/",
   "author": {
     "name": "邱凯翔",
     "email": "qkx2010@aliyun.com",
