@@ -1,9 +1,14 @@
 import { editor } from 'monaco-editor';
+import { CodeEditorProps, MonacoEditorProps } from './typing';
+import { warnMsg } from './utils';
 
-import { MonacoEditorProps } from './typing';
+export const useCommonEditor = () => {
+  // 监听options的变化,同步更新
+  // TODO: 未来提取公共逻辑
+};
 
-export const useEditor = (props: MonacoEditorProps, emit: any) => {
-  const editorRef = ref<editor.IStandaloneDiffEditor | editor.IStandaloneCodeEditor>();
+export const useCodeEditor = (props: CodeEditorProps, emit: any) => {
+  let editorInstance: editor.IStandaloneCodeEditor | null = null;
   const container = ref<HTMLElement>();
 
   onMounted(() => {
@@ -18,76 +23,100 @@ export const useEditor = (props: MonacoEditorProps, emit: any) => {
       ...props.options,
     };
 
-    if (props.diffEditor) {
-      editorRef.value = editor.createDiffEditor(container.value, options) as editor.IStandaloneDiffEditor;
+    editorInstance = editor.create(container.value, options) as editor.IStandaloneCodeEditor;
 
-      // 生成diff对应的model
-      const originalModel = editor.createModel(props.original, props.language);
-      const modifiedModel = editor.createModel(props.value, props.language);
-      editorRef.value.setModel({
-        original: originalModel,
-        modified: modifiedModel,
-      });
+    // 注册内容变化监听事件
+    editorInstance.onDidChangeModelContent((event) => {
+      const value = (editorInstance as editor.IStandaloneCodeEditor).getValue();
+      if (props.value !== value) {
+        emit('change', value, event);
+        emit('update:value', value);
+      }
+    });
 
-      // TODO: 注册diffEditor内容变化监听事件
-      // editorRef.value.modifiedEditor.onDidChangeModelContent((event) => {
-      //   const value = (editorRef.value as editor.IStandaloneCodeEditor).getValue();
-      //   if (props.value !== value) {
-      //     emit('change', value, event);
-      //     emit('update:value', value);
-      //   }
-      // });
-    } else {
-      editorRef.value = editor.create(container.value, options) as editor.IStandaloneCodeEditor;
+    emit('editorDidMount', editorInstance);
+  });
 
-      // 注册内容变化监听事件
-      editorRef.value.onDidChangeModelContent((event) => {
-        debugger;
-        const value = (editorRef.value as editor.IStandaloneCodeEditor).getValue();
-        if (props.value !== value) {
-          emit('change', value, event);
-          emit('update:value', value);
-        }
-      });
-    }
+  // 监听options的变化,同步更新
+  watch(
+    () => props.options,
+    (opt) => {
+      if (!opt) return;
+      editorInstance?.updateOptions(opt);
+    },
+    {
+      deep: true,
+    },
+  );
 
-    emit('editorDidMount', editorRef.value);
+  // TODO: 默认不监听value变更，后续需要将光标移动到文本末尾
+  // watch(
+  //   () => props.value,
+  //   (v) => {
+  //     if (!editorInstance) {
+  //       warnMsg('Monaco Editor not inited when props.value change');
+  //       return;
+  //     }
+  //     debugger;
+  //     editorInstance.setValue(v);
+  //   },
+  // );
+  // function moveCursorToEnd() {
+  //   const model = editor.getModel();
+  //   const lineCount = model.getLineCount();
+  //   const lastLine = model.getLineContent(lineCount);
+  //   const lastColumn = lastLine.length + 1; // 列号从1开始
 
-    // 监听options的变化,同步更新
-    watch(
-      () => props.options,
-      (opt) => {
-        if (!opt) return;
-        editorRef.value?.updateOptions(opt);
-      },
-      {
-        deep: true,
-      },
-    );
+  //   editor.setPosition({ lineNumber: lineCount, column: lastColumn });
+  //   editor.focus();
+  // }
 
-    // 监听value变更
-    watch(
-      () => props.value,
-      (v) => {
-        editorRef.value?.setValue(v);
-      },
-    );
+  return {
+    editorInstance,
+    container,
+  };
+};
 
-    // language() {
-    //   if (!this.editor) return;
-    //   if (this.diffEditor) {
-    //     const { original, modified } = this.editor.getModel();
-    //     monaco.editor.setModelLanguage(original, this.language);
-    //     monaco.editor.setModelLanguage(modified, this.language);
-    //   } else monaco.editor.setModelLanguage(this.editor.getModel(), this.language);
-    // },
-    // theme() {
-    //   monaco.editor.setTheme(this.theme);
-    // },
+export const useDiffEditor = (props: MonacoEditorProps, emit: any) => {
+  let editorInstance: editor.IStandaloneDiffEditor | null = null;
+  const container = ref<HTMLElement>();
+
+  onMounted(() => {
+    if (!container.value) return;
+
+    emit('editorWillMount');
+
+    const options = {
+      value: props.value,
+      language: props.language,
+      theme: props.theme,
+      ...props.options,
+    };
+
+    editorInstance = editor.createDiffEditor(container.value, options) as editor.IStandaloneDiffEditor;
+
+    // 生成diff对应的model
+    const originalModel = editor.createModel(props.original ?? '', props.language);
+    const modifiedModel = editor.createModel(props.value ?? '', props.language);
+    editorInstance.setModel({
+      original: originalModel,
+      modified: modifiedModel,
+    });
+
+    // TODO: 注册diffEditor内容变化监听事件
+    editorInstance.modifiedEditor.onDidChangeModelContent((event) => {
+      const value = (editorInstance as editor.IStandaloneCodeEditor).getValue();
+      if (props.value !== value) {
+        emit('change', value, event);
+        emit('update:value', value);
+      }
+    });
+
+    emit('editorDidMount', editorInstance);
   });
 
   return {
-    editorRef,
+    editorInstance,
     container,
   };
 };

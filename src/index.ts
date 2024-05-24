@@ -1,10 +1,6 @@
-import { App } from 'vue';
-import MonacoEditor from './MonacoEditor.vue';
+import CodeEditor from './CodeEditor.vue';
+import DiffEditor from './DiffEditor.vue';
 
-export { MonacoEditor };
+export { CodeEditor, DiffEditor };
 
-export default {
-  install: (app: App) => {
-    app.component(MonacoEditor.name as string, MonacoEditor);
-  },
-};
+export default CodeEditor;

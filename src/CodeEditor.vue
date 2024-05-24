@@ -3,11 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { MonacoEditorProps } from './typing';
-import { useEditor } from './hook';
+import { CodeEditorProps } from './typing';
+import { useCodeEditor } from './hook';
 
-const props = withDefaults(defineProps<MonacoEditorProps>(), {
-  diffEditor: false,
+const props = withDefaults(defineProps<CodeEditorProps>(), {
   width: '100%',
   height: '100%',
   language: 'javascript',
@@ -18,7 +17,7 @@ const props = withDefaults(defineProps<MonacoEditorProps>(), {
 
 const emit = defineEmits(['editorWillMount', 'editorDidMount', 'change', 'update:value']);
 
-const { editor, container } = useEditor(props, emit);
+const { container } = useCodeEditor(props, emit);
 
 const { width, height } = toRefs(props);
 

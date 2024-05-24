@@ -1,5 +1,4 @@
-export interface MonacoEditorProps {
-  diffEditor?: boolean;
+export type EditorProps = {
   width?: string | number;
   height?: string | number;
   original?: string;
@@ -7,5 +6,7 @@ export interface MonacoEditorProps {
   theme?: string;
   language?: string;
   options?: object;
-  // options: IStandaloneDiffEditorConstructionOptions & IStandaloneEditorConstructionOptions;
-}
+};
+
+export type CodeEditorProps = EditorProps;
+export type DiffEditorProps = EditorProps;

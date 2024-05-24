@@ -6,12 +6,13 @@
     theme="vs"
     :options="options"
     language="javascript"
-    :width="800"
+    :width="1000"
     :height="600"
     v-model:value="text"
+    @change="onChange"
   ></MonacoEditor>
 
-  <div class="demo-title">Demo2: Diff Editor</div>
+  <!-- <div class="demo-title">Demo2: Diff Editor</div> -->
   <!-- <MonacoEditor
     theme="vs"
     :options="options"
@@ -25,14 +26,22 @@
 </template>
 
 <script setup lang="ts">
+import MonacoEditor from '../CodeEditor.vue';
+
 const options = {
   colorDecorators: true,
   lineHeight: 24,
   tabSize: 2,
 };
-const type = ref('1');
-const original = ref('hello');
 const text = ref('world');
+
+setTimeout(() => {
+  text.value = 'hello';
+}, 2000);
+
+const onChange = (v: string) => {
+  console.log(v, text.value, 'ar');
+};
 </script>
 
 <style>
