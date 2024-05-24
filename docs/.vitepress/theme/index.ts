@@ -1,7 +1,6 @@
 // .vitepress/theme/index.ts
 import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-
 import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
 import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
@@ -30,8 +29,5 @@ self.MonacoEnvironment = {
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
-    // 注册自定义全局组件
-    // app.component('MyGlobalComponent' /* ... */)
-  },
+  enhanceApp: ({ app }) => {},
 } satisfies Theme;

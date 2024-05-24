@@ -26,4 +26,15 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/bazingaedward/monaco-editor-vue3' }],
   },
   base: '/monaco-editor-vue3/',
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          globals: {
+            'monaco-editor': 'monaco',
+          },
+        },
+      },
+    },
+  },
 });
