@@ -7,16 +7,13 @@ hero:
   actions:
     - theme: brand
       text: Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Docs
-      link: /api-docs
+      link: /examples
 
 features:
-  - title: Vue3 latest support
+  - title: Vue3@latset
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - title: Vitest
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: Vitepress
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---

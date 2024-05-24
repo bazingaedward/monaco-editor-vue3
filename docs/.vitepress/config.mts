@@ -7,16 +7,18 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'Guide', link: '/guide' },
+      { text: 'Examples', link: '/examples' },
+      { text: 'Playground', link: 'https://microsoft.github.io/monaco-editor/playground.html' },
+      { text: 'API', link: 'https://microsoft.github.io/monaco-editor/docs.html' },
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Category',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
+          { text: 'Guide', link: '/guide' },
+          { text: 'Examples', link: '/examples' },
         ],
       },
     ],

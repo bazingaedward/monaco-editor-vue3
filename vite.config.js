@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/MonacoEditor.vue'),
+      entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'monaco-editor-vue3',
       fileName: 'index',
     },
@@ -33,4 +33,9 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
 });

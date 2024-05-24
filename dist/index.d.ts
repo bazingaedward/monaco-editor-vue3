@@ -1,4 +1,3 @@
-import { App } from 'vue';
 import { ComponentOptionsMixin } from 'vue';
 import { DefineComponent } from 'vue';
 import { PropType as PropType_2 } from 'vue';
@@ -25,13 +24,7 @@ declare type __VLS_WithDefaults<P, D> = {
     }> : P[K];
 };
 
-declare const _default: {
-    install: (app: App) => void;
-};
-export default _default;
-
-export declare const MonacoEditor: DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<MonacoEditorProps>, {
-    diffEditor: boolean;
+declare const _default: DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<EditorProps>, {
     width: string;
     height: string;
     language: string;
@@ -43,8 +36,7 @@ export declare const MonacoEditor: DefineComponent<__VLS_WithDefaults<__VLS_Type
     editorDidMount: (...args: any[]) => void;
     change: (...args: any[]) => void;
     "update:value": (...args: any[]) => void;
-}, string, PublicProps, Readonly<globalThis.ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<MonacoEditorProps>, {
-    diffEditor: boolean;
+}, string, PublicProps, Readonly<globalThis.ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<EditorProps>, {
     width: string;
     height: string;
     language: string;
@@ -57,17 +49,17 @@ export declare const MonacoEditor: DefineComponent<__VLS_WithDefaults<__VLS_Type
     onChange?: ((...args: any[]) => any) | undefined;
     "onUpdate:value"?: ((...args: any[]) => any) | undefined;
 }, {
-    value: string;
-    language: string;
-    theme: string;
-    diffEditor: boolean;
     width: string | number;
     height: string | number;
+    value: string;
+    theme: string;
+    language: string;
     options: object;
 }, {}>;
+export { _default as CodeEditor }
+export default _default;
 
-declare interface MonacoEditorProps {
-    diffEditor?: boolean;
+declare type EditorProps = {
     width?: string | number;
     height?: string | number;
     original?: string;
@@ -75,6 +67,6 @@ declare interface MonacoEditorProps {
     theme?: string;
     language?: string;
     options?: object;
-}
+};
 
 export { }

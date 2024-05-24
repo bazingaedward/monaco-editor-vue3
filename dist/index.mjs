@@ -1,7 +1,7 @@
 import { ref, onMounted, watch, defineComponent, toRefs, computed, openBlock, createElementBlock, normalizeStyle, unref } from "vue";
 import { editor } from "monaco-editor";
-const useEditor = (props, emit) => {
-  const editorRef = ref();
+const useCodeEditor = (props, emit) => {
+  let editorInstance = null;
   const container = ref();
   onMounted(() => {
     if (!container.value)
@@ -13,55 +13,35 @@ const useEditor = (props, emit) => {
       theme: props.theme,
       ...props.options
     };
-    if (props.diffEditor) {
-      editorRef.value = editor.createDiffEditor(container.value, options);
-      const originalModel = editor.createModel(props.original, props.language);
-      const modifiedModel = editor.createModel(props.value, props.language);
-      editorRef.value.setModel({
-        original: originalModel,
-        modified: modifiedModel
-      });
-    } else {
-      editorRef.value = editor.create(container.value, options);
-      editorRef.value.onDidChangeModelContent((event) => {
-        debugger;
-        const value = editorRef.value.getValue();
-        if (props.value !== value) {
-          emit("change", value, event);
-          emit("update:value", value);
-        }
-      });
-    }
-    emit("editorDidMount", editorRef.value);
-    watch(
-      () => props.options,
-      (opt) => {
-        var _a;
-        if (!opt)
-          return;
-        (_a = editorRef.value) == null ? void 0 : _a.updateOptions(opt);
-      },
-      {
-        deep: true
+    editorInstance = editor.create(container.value, options);
+    editorInstance.onDidChangeModelContent((event) => {
+      const value = editorInstance.getValue();
+      if (props.value !== value) {
+        emit("change", value, event);
+        emit("update:value", value);
       }
-    );
-    watch(
-      () => props.value,
-      (v) => {
-        var _a;
-        (_a = editorRef.value) == null ? void 0 : _a.setValue(v);
-      }
-    );
+    });
+    emit("editorDidMount", editorInstance);
   });
+  watch(
+    () => props.options,
+    (opt) => {
+      if (!opt)
+        return;
+      editorInstance == null ? void 0 : editorInstance.updateOptions(opt);
+    },
+    {
+      deep: true
+    }
+  );
   return {
-    editorRef,
+    editorInstance,
     container
   };
 };
 const _sfc_main = /* @__PURE__ */ defineComponent({
-  __name: "MonacoEditor",
+  __name: "CodeEditor",
   props: {
-    diffEditor: { type: Boolean, default: false },
     width: { default: "100%" },
     height: { default: "100%" },
     original: {},
@@ -74,7 +54,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props, { emit: __emit }) {
     const props = __props;
     const emit = __emit;
-    const { editor: editor2, container } = useEditor(props, emit);
+    const { container } = useCodeEditor(props, emit);
     const { width, height } = toRefs(props);
     const style = computed(() => {
       const fixedWidth = width.value.toString().includes("%") ? width.value : `${width.value}px`;
@@ -95,5 +75,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 export {
+  _sfc_main as CodeEditor,
   _sfc_main as default
 };

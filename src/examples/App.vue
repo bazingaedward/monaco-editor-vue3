@@ -35,10 +35,6 @@ const options = {
 };
 const text = ref('world');
 
-setTimeout(() => {
-  text.value = 'hello';
-}, 2000);
-
 const onChange = (v: string) => {
   console.log(v, text.value, 'ar');
 };
