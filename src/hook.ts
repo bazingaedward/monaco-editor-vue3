@@ -1,6 +1,5 @@
 import { editor } from 'monaco-editor';
 import { CodeEditorProps, MonacoEditorProps } from './typing';
-import { warnMsg } from './utils';
 
 export const useCommonEditor = () => {
   // 监听options的变化,同步更新
@@ -104,8 +103,8 @@ export const useDiffEditor = (props: MonacoEditorProps, emit: any) => {
     });
 
     // TODO: 注册diffEditor内容变化监听事件
-    editorInstance.modifiedEditor.onDidChangeModelContent((event) => {
-      const value = (editorInstance as editor.IStandaloneCodeEditor).getValue();
+    editorInstance.getModifiedEditor().onDidChangeModelContent((event) => {
+      const value = (editorInstance?.getModifiedEditor() as editor.IStandaloneCodeEditor).getValue();
       if (props.value !== value) {
         emit('change', value, event);
         emit('update:value', value);

@@ -6,3 +6,5 @@ package-lock.json
 yarn.lock
 docs/.vitepress/dist
 docs/.vitepress/cache
+
+coverage

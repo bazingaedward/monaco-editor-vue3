@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<DiffEditorProps>(), {
   language: 'javascript',
   theme: 'vs',
   value: '',
+  original: '',
   options: () => ({}),
 });
 

@@ -1,5 +1,16 @@
 # Examples
 
+# DiffEditor
+
+<DiffEditor
+theme="vs"
+:options="options"
+language="javascript"
+:height="600"
+v-model:value="diff"
+:original="'world'"
+/>
+
 ## Javascript / Typescript
 
 <CodeEditor
@@ -11,9 +22,11 @@ v-model:value="tsString"
 />
 
 <script setup lang="ts">
-  import {ref} from 'vue'
-  import {CodeEditor} from '../dist/index.mjs'
+  import {ref, watch} from 'vue'
+  import {CodeEditor, DiffEditor} from '../dist/index.mjs'
   import {tsString, jsonString, cssString, htmlString, sqlString} from './constant'
+
+  const diff=ref('helld')
 
   const options = {
   colorDecorators: true,

@@ -5,7 +5,13 @@ import { PublicProps } from 'vue';
 
 declare type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
 
+declare type __VLS_NonUndefinedable_2<T> = T extends undefined ? never : T;
+
 declare type __VLS_Prettify<T> = {
+    [K in keyof T]: T[K];
+} & {};
+
+declare type __VLS_Prettify_2<T> = {
     [K in keyof T]: T[K];
 } & {};
 
@@ -18,8 +24,23 @@ declare type __VLS_TypePropsToRuntimeProps<T> = {
     };
 };
 
+declare type __VLS_TypePropsToRuntimeProps_2<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: PropType_2<__VLS_NonUndefinedable_2<T[K]>>;
+    } : {
+        type: PropType_2<T[K]>;
+        required: true;
+    };
+};
+
 declare type __VLS_WithDefaults<P, D> = {
     [K in keyof Pick<P, keyof P>]: K extends keyof D ? __VLS_Prettify<P[K] & {
+        default: D[K];
+    }> : P[K];
+};
+
+declare type __VLS_WithDefaults_2<P, D> = {
+    [K in keyof Pick<P, keyof P>]: K extends keyof D ? __VLS_Prettify_2<P[K] & {
         default: D[K];
     }> : P[K];
 };
@@ -58,6 +79,42 @@ declare const _default: DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRunt
 }, {}>;
 export { _default as CodeEditor }
 export default _default;
+
+export declare const DiffEditor: DefineComponent<__VLS_WithDefaults_2<__VLS_TypePropsToRuntimeProps_2<EditorProps>, {
+    width: string;
+    height: string;
+    language: string;
+    theme: string;
+    value: string;
+    original: string;
+    options: () => {};
+}>, {}, unknown, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {
+    editorWillMount: (...args: any[]) => void;
+    editorDidMount: (...args: any[]) => void;
+    change: (...args: any[]) => void;
+    "update:value": (...args: any[]) => void;
+}, string, PublicProps, Readonly<globalThis.ExtractPropTypes<__VLS_WithDefaults_2<__VLS_TypePropsToRuntimeProps_2<EditorProps>, {
+    width: string;
+    height: string;
+    language: string;
+    theme: string;
+    value: string;
+    original: string;
+    options: () => {};
+}>>> & {
+    onEditorWillMount?: ((...args: any[]) => any) | undefined;
+    onEditorDidMount?: ((...args: any[]) => any) | undefined;
+    onChange?: ((...args: any[]) => any) | undefined;
+    "onUpdate:value"?: ((...args: any[]) => any) | undefined;
+}, {
+    width: string | number;
+    height: string | number;
+    original: string;
+    value: string;
+    theme: string;
+    language: string;
+    options: object;
+}, {}>;
 
 declare type EditorProps = {
     width?: string | number;

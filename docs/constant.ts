@@ -186,3 +186,5 @@ ORDER BY
     total_amount_spent DESC;
 
 `;
+
+export const diff = 'hello';

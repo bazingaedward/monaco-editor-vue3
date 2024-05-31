@@ -1,7 +1,8 @@
+/// <reference types="vitest" />
 import path from 'path';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import AutoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
@@ -36,6 +37,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      'monaco-editor': path.resolve(__dirname, 'node_modules/monaco-editor/esm/vs/editor/editor.api.js'),
     },
+  },
+  test: {
+    environment: 'jsdom',
   },
 });
