@@ -28,7 +28,8 @@
     "commit": "git add . && pnpx git-cz",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "cy:open": "cypress open"
   },
   "packageManager": "pnpm@8.15.1",
   "peerDependencies": {
@@ -46,6 +47,7 @@
     "@vue/compiler-sfc": "^3.4.15",
     "@vue/test-utils": "^2.4.4",
     "conventional-changelog-cli": "^2.2.2",
+    "cypress": "^13.10.0",
     "eslint": "^9.2.0",
     "eslint-plugin-vue": "^9.26.0",
     "globals": "^15.2.0",

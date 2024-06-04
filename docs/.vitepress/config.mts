@@ -27,7 +27,12 @@ export default defineConfig({
   },
   base: '/monaco-editor-vue3/',
   vite: {
+    define: {
+      self: 'self',
+      navigator: 'navigator',
+    },
     build: {
+      ssr: false,
       rollupOptions: {
         output: {
           globals: {
