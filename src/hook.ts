@@ -48,28 +48,6 @@ export const useCodeEditor = (props: CodeEditorProps, emit: any) => {
     },
   );
 
-  // TODO: 默认不监听value变更，后续需要将光标移动到文本末尾
-  // watch(
-  //   () => props.value,
-  //   (v) => {
-  //     if (!editorInstance) {
-  //       warnMsg('Monaco Editor not inited when props.value change');
-  //       return;
-  //     }
-  //     debugger;
-  //     editorInstance.setValue(v);
-  //   },
-  // );
-  // function moveCursorToEnd() {
-  //   const model = editor.getModel();
-  //   const lineCount = model.getLineCount();
-  //   const lastLine = model.getLineContent(lineCount);
-  //   const lastColumn = lastLine.length + 1; // 列号从1开始
-
-  //   editor.setPosition({ lineNumber: lineCount, column: lastColumn });
-  //   editor.focus();
-  // }
-
   return {
     editorInstance,
     container,
@@ -102,7 +80,7 @@ export const useDiffEditor = (props: MonacoEditorProps, emit: any) => {
       modified: modifiedModel,
     });
 
-    // TODO: 注册diffEditor内容变化监听事件
+    // 注册diffEditor内容变化监听事件
     editorInstance.getModifiedEditor().onDidChangeModelContent((event) => {
       const value = (editorInstance?.getModifiedEditor() as editor.IStandaloneCodeEditor).getValue();
       if (props.value !== value) {
