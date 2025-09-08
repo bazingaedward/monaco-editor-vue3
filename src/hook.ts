@@ -1,5 +1,5 @@
 import { editor } from 'monaco-editor';
-import { CodeEditorProps, MonacoEditorProps } from './typing';
+import type { CodeEditorProps, MonacoEditorProps } from './typing';
 
 export const useCommonEditor = () => {
   // 监听options的变化,同步更新
@@ -45,7 +45,7 @@ export const useCodeEditor = (props: CodeEditorProps, emit: any) => {
     },
     {
       deep: true,
-    },
+    }
   );
 
   return {

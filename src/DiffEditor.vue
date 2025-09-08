@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { DiffEditorProps } from './typing';
 import { useDiffEditor } from './hook';
+import type { DiffEditorProps } from './typing';
 
 const props = withDefaults(defineProps<DiffEditorProps>(), {
   width: '100%',

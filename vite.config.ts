@@ -1,9 +1,9 @@
 /// <reference types="vitest" />
-import path from 'path';
+import path from 'node:path';
 import vue from '@vitejs/plugin-vue';
+import AutoImport from 'unplugin-auto-import/vite';
 import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vitest/config';
-import AutoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
   build: {
@@ -29,9 +29,6 @@ export default defineConfig({
     AutoImport({
       dts: true,
       imports: ['vue'],
-      eslintrc: {
-        enabled: true, // <-- this
-      },
     }),
   ],
   resolve: {

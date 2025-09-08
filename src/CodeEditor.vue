@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { CodeEditorProps } from './typing';
 import { useCodeEditor } from './hook';
+import type { CodeEditorProps } from './typing';
 
 const props = withDefaults(defineProps<CodeEditorProps>(), {
   width: '100%',
