@@ -1,68 +1,68 @@
-# 示例总览
+# Example Overview
 
-欢迎来到 Monaco Editor Vue3 的示例页面！这里包含了各种使用场景的完整示例。
+Welcome to the Monaco Editor Vue3 examples page! Here you'll find complete examples for various usage scenarios.
 
-## 示例分类
+## Example Categories
 
-### 🚀 [基础示例](./basic)
+### 🚀 [Basic Examples](./basic)
 
-展示 Monaco Editor Vue3 的基本用法：
+Showcases the basic usage of Monaco Editor Vue3:
 
-- **CodeEditor**: 单文件代码编辑器
-- **DiffEditor**: 差异对比编辑器
-- **多语言支持**: JavaScript/TypeScript、JSON、CSS、HTML、SQL
-- **基础配置**: 主题、选项、事件处理
+- **CodeEditor**: Single-file code editor
+- **DiffEditor**: Difference comparison editor
+- **Multi-language support**: JavaScript/TypeScript, JSON, CSS, HTML, SQL
+- **Basic configuration**: Themes, options, event handling
 
-**适合场景**: 
-- 快速上手使用
-- 了解基本功能
-- 学习配置选项
-
----
-
-### ⚡ [加载状态和错误边界](./loading-and-errorboundary)
-
-展示高级特性和状态管理：
-
-- **加载状态管理**: 自定义加载动画和进度显示
-- **错误边界**: 优雅处理运行时错误
-- **生命周期钩子**: 完整的组件生命周期控制
-- **Hook API**: 底层 API 使用示例
-- **工具函数**: 实用的辅助函数
-
-**适合场景**:
-- 生产环境部署
-- 复杂应用集成
-- 自定义错误处理
-- 高级定制需求
+**Recommended for:**
+- Quick start
+- Understanding core features
+- Learning configuration options
 
 ---
 
-## 快速导航
+### ⚡ [Loading State & Error Boundary](./loading-and-errorboundary)
 
-| 功能 | 基础示例 | 高级示例 |
-|------|----------|----------|
-| 代码编辑器 | ✅ | ✅ |
-| 差异对比 | ✅ | ✅ |
-| 加载状态 | ❌ | ✅ |
-| 错误处理 | ❌ | ✅ |
-| 生命周期 | ❌ | ✅ |
-| Hook API | ❌ | ✅ |
-| 工具函数 | ❌ | ✅ |
+Showcases advanced features and state management:
 
-## 开始使用
+- **Loading state management**: Custom loading animation and progress display
+- **Error boundary**: Graceful runtime error handling
+- **Lifecycle hooks**: Full component lifecycle control
+- **Hook API**: Low-level API usage examples
+- **Utility functions**: Useful helper functions
 
-1. **新手用户**: 建议从 [基础示例](./basic) 开始
-2. **进阶用户**: 直接查看 [加载状态和错误边界](./loading-and-errorboundary)
-3. **API 参考**: 查看 [完整指南](/guide) 了解所有可用选项
+**Recommended for:**
+- Production deployment
+- Complex app integration
+- Custom error handling
+- Advanced customization needs
 
-## 在线体验
+---
 
-所有示例都可以在当前页面直接运行和测试。你可以：
+## Quick Navigation
 
-- 📝 修改代码内容
-- 🎨 切换主题和语言
-- ⚙️ 调整配置选项
-- 🔧 观察组件行为
+| Feature         | Basic Example | Advanced Example |
+|----------------|--------------|-----------------|
+| Code Editor    | ✅           | ✅              |
+| Diff Editor    | ✅           | ✅              |
+| Loading State  | ❌           | ✅              |
+| Error Handling | ❌           | ✅              |
+| Lifecycle      | ❌           | ✅              |
+| Hook API       | ❌           | ✅              |
+| Utilities      | ❌           | ✅              |
 
-有问题？查看 [常见问题](/guide#troubleshooting) 或提交 [GitHub Issue](https://github.com/bazingaedward/monaco-editor-vue3/issues)。
+## Getting Started
+
+1. **New users**: Start with [Basic Examples](./basic)
+2. **Advanced users**: Go directly to [Loading State & Error Boundary](./loading-and-errorboundary)
+3. **API Reference**: See the [Complete Guide](/guide) for all available options
+
+## Online Experience
+
+All examples can be run and tested directly on this page. You can:
+
+- 📝 Edit code content
+- 🎨 Switch themes and languages
+- ⚙️ Adjust configuration options
+- 🔧 Observe component behavior
+
+Have questions? Check the [FAQ](/guide#troubleshooting) or submit a [GitHub Issue](https://github.com/bazingaedward/monaco-editor-vue3/issues).

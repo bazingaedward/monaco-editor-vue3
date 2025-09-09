@@ -1,26 +1,27 @@
-# Loading State & Error Boundary
+# 加载状态和错误边界
 
-This page demonstrates the advanced features of Monaco Editor Vue3, including loading state management, error handling, and enhanced lifecycle hooks.
+本页面展示了 Monaco Editor Vue3 组件的高级功能，包括加载状态管理、错误处理、生命周期钩子等增强特性。
 
-## Overview
+## 概述
 
-Monaco Editor Vue3 provides comprehensive state management and error handling mechanisms:
+Monaco Editor Vue3 提供了完整的状态管理和错误处理机制：
 
-- **Loading state management**: Display editor loading progress and status
-- **Error boundary**: Capture and handle runtime errors in the editor
-- **Lifecycle hooks**: Execute custom logic at different stages of the editor
-- **Retry mechanism**: Allow users to reload when errors occur
-- **Hook API**: Low-level API for custom implementations
+- **加载状态管理**: 显示编辑器加载进度和状态
+- **错误边界**: 捕获和处理编辑器运行时错误
+- **生命周期钩子**: 在编辑器不同阶段执行自定义逻辑
+- **重试机制**: 允许用户在出现错误时重新加载
+- **Hook API**: 提供底层 API 用于自定义实现
 
-## 1. Basic Usage (with Error Handling & Loading State)
+## 1. 基础使用（带错误处理和加载状态）
 
-### Enhanced CodeEditor Example
+### CodeEditor 增强示例
 
 ```vue
 <template>
   <div>
     <h3>Code Editor with Enhanced Features</h3>
-    <!-- Basic usage -->
+    
+    <!-- 基础使用 -->
     <CodeEditor
       v-model:value="code"
       language="javascript"
@@ -31,7 +32,8 @@ Monaco Editor Vue3 provides comprehensive state management and error handling me
       @ready="handleReady"
       @loading="handleLoading"
     />
-    <!-- Show state -->
+    
+    <!-- 显示状态 -->
     <div v-if="editorError" class="error-info">
       <h4>Error: {{ editorError.code }}</h4>
       <p>{{ editorError.message }}</p>
@@ -50,7 +52,7 @@ const code = ref(`function hello() {
 
 const editorError = ref<EditorError | null>(null);
 
-// Lifecycle hooks
+// 生命周期钩子
 const lifecycleHooks: EditorLifecycleHooks = {
   beforeCreate: async () => {
     console.log('Editor will be created...');
@@ -83,12 +85,13 @@ const handleLoading = (loadingState: any) => {
 </script>
 ```
 
-### Enhanced DiffEditor Example
+### DiffEditor 增强示例
 
 ```vue
 <template>
   <div>
     <h3>Diff Editor with Enhanced Features</h3>
+    
     <DiffEditor
       v-model:value="modifiedCode"
       :original="originalCode"
@@ -136,21 +139,24 @@ const handleDiffReady = () => {
 </script>
 ```
 
-## 2. Advanced Feature Examples
+## 2. 高级功能示例
 
-### Using the Hook API Directly
+### 直接使用 Hook API
 
 ```vue
 <template>
   <div>
     <div ref="container" style="height: 400px; border: 1px solid #ccc;"></div>
+    
     <div v-if="loading.isLoading" class="loading">
       Loading: {{ loading.progress }}%
     </div>
+    
     <div v-if="error" class="error">
       Error: {{ error.message }}
       <button @click="retry">Retry</button>
     </div>
+    
     <button v-if="isReady" @click="destroy">Destroy Editor</button>
   </div>
 </template>
@@ -180,7 +186,7 @@ const { loading, error, isReady, retry, destroy } = useCodeEditor(props, emit);
 </script>
 ```
 
-### Standalone Error Boundary Component
+### 错误处理组件单独使用
 
 ```vue
 <template>
@@ -215,17 +221,17 @@ const handleReport = (error: any) => {
 </script>
 ```
 
-## 3. Custom Loading & Error Components
+## 3. 自定义 Loading 和 Error 组件
 
-Monaco Editor Vue3 supports fully custom loading and error state displays.
+Monaco Editor Vue3 组件支持用户完全自定义加载状态和错误状态的显示。
 
-### Using Default Component Configuration
+### 使用默认组件配置
 
 ```vue
 <template>
   <CodeEditor
     v-model:value="code"
-    :loading-text="'Loading editor...'"
+    :loading-text="'正在加载编辑器...'"
     :show-progress="true"
     :show-error-boundary="true"
     :retryable="true"
@@ -233,7 +239,7 @@ Monaco Editor Vue3 supports fully custom loading and error state displays.
 </template>
 ```
 
-### Custom Loading Component
+### 自定义加载组件
 
 ```vue
 <template>
@@ -243,7 +249,7 @@ Monaco Editor Vue3 supports fully custom loading and error state displays.
         <div class="custom-spinner">🔄</div>
         <h3>{{ loadingText }}</h3>
         <div v-if="showProgress" class="progress-info">
-          <span>Progress: {{ progress }}%</span>
+          <span>进度: {{ progress }}%</span>
           <div class="custom-progress-bar">
             <div 
               class="progress-fill" 
@@ -251,7 +257,7 @@ Monaco Editor Vue3 supports fully custom loading and error state displays.
             ></div>
           </div>
         </div>
-        <p>Status: {{ loading.stage }}</p>
+        <p>状态: {{ loading.stage }}</p>
       </div>
     </template>
   </CodeEditor>
@@ -295,7 +301,7 @@ Monaco Editor Vue3 supports fully custom loading and error state displays.
 </style>
 ```
 
-### Custom Error Component
+### 自定义错误组件
 
 ```vue
 <template>
@@ -303,28 +309,31 @@ Monaco Editor Vue3 supports fully custom loading and error state displays.
     <template #error="{ error, retry, retryable }">
       <div class="my-custom-error">
         <div class="error-icon">❌</div>
-        <h3>Editor Load Failed</h3>
+        <h3>编辑器加载失败</h3>
         <p class="error-message">{{ error.message }}</p>
+        
         <div v-if="error.details" class="error-details">
           <details>
-            <summary>View Details</summary>
+            <summary>查看详细信息</summary>
             <pre>{{ error.details }}</pre>
           </details>
         </div>
+        
         <div class="error-actions">
           <button 
             v-if="retryable" 
             @click="retry" 
             class="retry-btn"
           >
-            🔄 Retry
+            🔄 重新尝试
           </button>
           <button @click="reportError" class="report-btn">
-            📧 Report Issue
+            📧 报告问题
           </button>
         </div>
+        
         <div v-if="error.code" class="error-code">
-          Error Code: {{ error.code }}
+          错误代码: {{ error.code }}
         </div>
       </div>
     </template>
@@ -333,8 +342,8 @@ Monaco Editor Vue3 supports fully custom loading and error state displays.
 
 <script setup>
 const reportError = () => {
-  // Implement error reporting logic
-  console.log('Reporting error...');
+  // 实现错误报告逻辑
+  console.log('报告错误...');
 };
 </script>
 
@@ -394,9 +403,9 @@ const reportError = () => {
 </style>
 ```
 
-### Fully Disable Default Components
+### 完全禁用默认组件
 
-If you want to use only custom components and not show any default ones:
+如果你想完全使用自定义组件而不显示任何默认组件：
 
 ```vue
 <template>
@@ -408,6 +417,7 @@ If you want to use only custom components and not show any default ones:
     <template #loading="{ loading }">
       <MyCustomLoadingComponent :loading-state="loading" />
     </template>
+    
     <template #error="{ error, retry }">
       <MyCustomErrorComponent :error="error" @retry="retry" />
     </template>
@@ -415,48 +425,48 @@ If you want to use only custom components and not show any default ones:
 </template>
 ```
 
-### Slot Parameter Reference
+### 插槽参数说明
 
-#### Loading Slot Parameters
+#### Loading 插槽参数
 
-- `loading`: Complete loading state object
-  - `stage`: Current loading stage
-  - `progress`: Loading progress (0-100)
-  - `loadingText`: Loading text
-- `loadingText`: Loading text (from props or default)
-- `progress`: Current progress
-- `showProgress`: Whether to show progress
+- `loading`: 完整的加载状态对象
+  - `stage`: 当前加载阶段
+  - `progress`: 加载进度 (0-100)
+  - `loadingText`: 加载文本
+- `loadingText`: 加载文本（props 中的或默认的）
+- `progress`: 当前进度
+- `showProgress`: 是否显示进度
 
-#### Error Slot Parameters
+#### Error 插槽参数
 
-- `error`: Error object
-  - `message`: Error message
-  - `details`: Error details
-  - `code`: Error code
-  - `recoverable`: Whether recoverable
-- `retry`: Retry function
-- `retryable`: Whether retry is allowed
+- `error`: 错误对象
+  - `message`: 错误消息
+  - `details`: 错误详情
+  - `code`: 错误代码
+  - `recoverable`: 是否可恢复
+- `retry`: 重试函数
+- `retryable`: 是否可重试
 
-### Configuration Options
+### 配置选项
 
 #### CodeEditor & DiffEditor Props
 
-- `loadingText?: string` - Custom loading text
-- `showProgress?: boolean` - Show progress bar (default true)
-- `showErrorBoundary?: boolean` - Show error boundary (default true)
-- `retryable?: boolean` - Allow retry (default true)
-- `useDefaultLoading?: boolean` - Use default loading component (default true)
-- `useDefaultErrorBoundary?: boolean` - Use default error component (default true)
+- `loadingText?: string` - 自定义加载文本
+- `showProgress?: boolean` - 是否显示进度条（默认 true）
+- `showErrorBoundary?: boolean` - 是否显示错误边界（默认 true）
+- `retryable?: boolean` - 是否允许重试（默认 true）
+- `useDefaultLoading?: boolean` - 是否使用默认加载组件（默认 true）
+- `useDefaultErrorBoundary?: boolean` - 是否使用默认错误组件（默认 true）
 
-#### Related Events
+#### 相关事件
 
-- `@loading` - Triggered when loading state changes
-- `@error` - Triggered when error state changes
-- `@ready` - Triggered when editor is ready
+- `@loading` - 加载状态变化时触发
+- `@error` - 错误状态变化时触发
+- `@ready` - 编辑器准备就绪时触发
 
-## 4. Utility Function Examples
+## 4. 工具函数使用示例
 
-Here are some useful utility functions to help you handle various Monaco Editor scenarios:
+以下展示了一些实用的工具函数，可以帮助你更好地处理 Monaco Editor 的各种场景：
 
 ```typescript
 import { 
@@ -467,31 +477,31 @@ import {
   validateEditorOptions 
 } from 'monaco-editor-vue3';
 
-// Create a standard error
+// 创建标准错误
 const error = createEditorError(
   'CUSTOM_ERROR',
   'Something went wrong',
   'Additional details here'
 );
 
-// Safely execute async operations
+// 安全执行异步操作
 const { success, data, error: execError } = await safeAsyncExecution(
   async () => {
-    // Some async operation that may fail
+    // 一些可能失败的异步操作
     return await fetch('/api/editor-config');
   },
   'CONFIG_LOAD_ERROR',
   'Failed to load editor configuration'
 );
 
-// Check Monaco availability
+// 检查 Monaco 可用性
 if (isMonacoAvailable()) {
   console.log('Monaco is ready');
 } else {
-  await waitForMonaco(5000); // Wait up to 5 seconds
+  await waitForMonaco(5000); // 等待最多5秒
 }
 
-// Validate editor options
+// 验证编辑器选项
 const options = { value: 'test', language: 'javascript' };
 const validationError = validateEditorOptions(options);
 if (validationError) {
@@ -499,10 +509,10 @@ if (validationError) {
 }
 ```
 
-## 5. Best Practices
+## 5. 最佳实践
 
-1. **Progressive enhancement**: Start with default components, then customize as needed
-2. **State management**: Use slot parameters to get full state info
-3. **Error handling**: Provide user-friendly error messages and recovery options
-4. **Performance**: Keep custom components lightweight
-5. **Accessibility**: Ensure custom components support keyboard navigation and screen readers
+1. **渐进式增强**: 先使用默认组件，再根据需要自定义
+2. **状态管理**: 利用插槽参数获取完整的状态信息
+3. **错误处理**: 提供用户友好的错误信息和恢复选项
+4. **性能考虑**: 自定义组件应该保持轻量级
+5. **可访问性**: 确保自定义组件支持键盘导航和屏幕阅读器

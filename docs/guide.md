@@ -1,51 +1,51 @@
-# Monaco Editor Vue3 完整指南
+# Monaco Editor Vue3 Complete Guide
 
-欢迎使用 Monaco Editor Vue3！这是一个为 Vue 3 应用程序提供 Monaco Editor 集成的强大库。
+Welcome to Monaco Editor Vue3! This is a powerful library that provides Monaco Editor integration for Vue 3 applications.
 
-## 主要特性
+## Key Features
 
-### 🚀 Vue 3 原生支持
-- 完全基于 Vue 3 Composition API
-- TypeScript 类型支持
-- 响应式状态管理
+### 🚀 Native Vue 3 Support
+- Built entirely with Vue 3 Composition API
+- TypeScript type support
+- Reactive state management
 
-### 📝 双编辑器支持
-- **CodeEditor**: 单文件代码编辑器
-- **DiffEditor**: 代码差异对比编辑器
+### 📝 Dual Editor Support
+- **CodeEditor**: Single-file code editor
+- **DiffEditor**: Code difference comparison editor
 
-### 🎨 高度可定制
-- 自定义主题和样式
-- 可配置的加载和错误组件
-- 插槽支持用户完全自定义UI
+### 🎨 Highly Customizable
+- Custom themes and styles
+- Configurable loading and error components
+- Slot support for complete UI customization
 
-### 🔧 强大的功能
-- 智能代码补全
-- 语法高亮
-- 错误检测和自动修复
-- 多语言支持
-- 实时协作功能
+### 🔧 Powerful Features
+- Intelligent code completion
+- Syntax highlighting
+- Error detection and auto-fixing
+- Multi-language support
+- Real-time collaboration features
 
-### 📱 响应式设计
-- 自适应布局
-- 移动设备支持
-- 灵活的尺寸配置
+### 📱 Responsive Design
+- Adaptive layout
+- Mobile device support
+- Flexible size configuration
 
-## 快速开始
+## Getting Started
 
-### 安装
+### Installation
 
 ```bash
-# 使用 npm
+# Using npm
 npm install monaco-editor-vue3 monaco-editor
 
-# 使用 yarn
+# Using yarn
 yarn add monaco-editor-vue3 monaco-editor
 
-# 使用 pnpm
+# Using pnpm
 pnpm add monaco-editor-vue3 monaco-editor
 ```
 
-### 基础使用
+### Basic Usage
 
 ```vue
 <template>
@@ -75,47 +75,47 @@ const editorOptions = {
 </script>
 ```
 
-## 核心概念
+## Core Concepts
 
-### 组件架构
+### Component Architecture
 
 ```
 Monaco Editor Vue3
-├── CodeEditor          # 单文件编辑器
-├── DiffEditor          # 差异对比编辑器
-├── MonacoLoading       # 加载状态组件
-├── MonacoErrorBoundary # 错误边界组件
+├── CodeEditor          # Single-file editor
+├── DiffEditor          # Difference comparison editor
+├── MonacoLoading       # Loading state component
+├── MonacoErrorBoundary # Error boundary component
 └── Hooks
-    ├── useCodeEditor   # 代码编辑器 Hook
-    ├── useDiffEditor   # 差异编辑器 Hook
-    ├── useEditorState  # 状态管理 Hook
-    └── useEditorLifecycle # 生命周期 Hook
+    ├── useCodeEditor   # Code editor Hook
+    ├── useDiffEditor   # Diff editor Hook
+    ├── useEditorState  # State management Hook
+    └── useEditorLifecycle # Lifecycle Hook
 ```
 
-### 状态管理
+### State Management
 
-编辑器具有以下状态：
+The editor has the following states:
 
-- **Loading**: 编辑器正在加载
-- **Ready**: 编辑器已准备就绪
-- **Error**: 编辑器遇到错误
-- **Destroyed**: 编辑器已销毁
+- **Loading**: Editor is loading
+- **Ready**: Editor is ready for use
+- **Error**: Editor encountered an error
+- **Destroyed**: Editor has been destroyed
 
-### 事件系统
+### Event System
 
-编辑器支持丰富的事件系统：
+The editor supports a rich event system:
 
 ```typescript
 interface EditorEvents {
-  // 生命周期事件
+  // Lifecycle events
   editorWillMount: () => void;
   editorDidMount: (editor) => void;
   
-  // 内容变化事件
+  // Content change events
   change: (value: string, event) => void;
   'update:value': (value: string) => void;
   
-  // 状态事件
+  // State events
   loading: (state: LoadingState) => void;
   error: (error: EditorError) => void;
   ready: () => void;
@@ -123,12 +123,12 @@ interface EditorEvents {
 ```
 
 
-## 社区与支持
+## Community & Support
 
-- [GitHub 仓库](https://github.com/bazingaedward/monaco-editor-vue3)
-- [问题反馈](https://github.com/bazingaedward/monaco-editor-vue3/issues)
-- [讨论区](https://github.com/bazingaedward/monaco-editor-vue3/discussions)
+- [GitHub Repository](https://github.com/bazingaedward/monaco-editor-vue3)
+- [Issue Tracker](https://github.com/bazingaedward/monaco-editor-vue3/issues)
+- [Discussions](https://github.com/bazingaedward/monaco-editor-vue3/discussions)
 
 ---
 
-欢迎为这个项目做出贡献！如果您发现任何问题或有改进建议，请随时提交 issue 或 pull request。
+Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to submit an issue or pull request.
