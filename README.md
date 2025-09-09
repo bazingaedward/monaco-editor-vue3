@@ -123,17 +123,6 @@ export default {
 };
 ```
 
-### Props
-
-- `width`: Editor width, eg: `800px` or `800`.
-- `height`: Editor height, eg: `800px` or `800`.
-- `options`: The [second argument](https://microsoft.github.io/monaco-editor/typedoc/interfaces/editor.IStandaloneEditorConstructionOptions.html) of [`monaco.editor.create`](https://microsoft.github.io/monaco-editor/typedoc/functions/editor.create.html).
-- `value`: A shortcut to set `options.value`.
-- `theme`: A shortcut to set `options.theme`.
-- `language`: A shortcut to set `options.language`.
-- `diffEditor`: `boolean` Indicate that this is a DiffEditor, `false` by default.
-- `original`: if `diffEditor` set `true`, this will be used .
-
 ### Component Events
 
 #### `editorWillMount`

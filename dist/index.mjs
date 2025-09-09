@@ -1,4 +1,4 @@
-import { ref, onMounted, nextTick, onUnmounted, watch, defineComponent, openBlock, createElementBlock, createElementVNode, toDisplayString, normalizeStyle, createCommentVNode, pushScopeId, popScopeId, computed, createTextVNode, createStaticVNode, toRefs, unref, renderSlot, createBlock, withDirectives, vShow } from "vue";
+import { ref, onMounted, nextTick, onUnmounted, watch, defineComponent, openBlock, createElementBlock, createElementVNode, toDisplayString, normalizeStyle, createCommentVNode, pushScopeId, popScopeId, computed, createTextVNode, createStaticVNode, toRefs, unref, renderSlot, createBlock } from "vue";
 import { editor } from "monaco-editor";
 const warnMsg = (msg) => {
   console.warn(`[MonacoEditorVue3]: ${msg}`);
@@ -590,18 +590,17 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             onRetry: handleRetry
           }, null, 8, ["error", "show-retry"])) : createCommentVNode("", true)
         ], true) : createCommentVNode("", true),
-        withDirectives(createElementVNode("div", {
+        createElementVNode("div", {
           ref_key: "container",
           ref: container,
-          class: "monaco-editor-container"
-        }, null, 512), [
-          [vShow, unref(isReady) && !unref(error)]
-        ])
+          class: "monaco-editor-container",
+          style: normalizeStyle({ visibility: unref(isReady) && !unref(error) ? "visible" : "hidden" })
+        }, null, 4)
       ], 4);
     };
   }
 });
-const CodeEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-591a3846"]]);
+const CodeEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-bfb941e9"]]);
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "DiffEditor",
   props: {
@@ -686,18 +685,17 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             onRetry: handleRetry
           }, null, 8, ["error", "show-retry"])) : createCommentVNode("", true)
         ], true) : createCommentVNode("", true),
-        withDirectives(createElementVNode("div", {
+        createElementVNode("div", {
           ref_key: "container",
           ref: container,
-          class: "monaco-editor-container"
-        }, null, 512), [
-          [vShow, unref(isReady) && !unref(error)]
-        ])
+          class: "monaco-editor-container",
+          style: normalizeStyle({ visibility: unref(isReady) && !unref(error) ? "visible" : "hidden" })
+        }, null, 4)
       ], 4);
     };
   }
 });
-const DiffEditor = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-9eb8d5bc"]]);
+const DiffEditor = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5035138c"]]);
 export {
   CodeEditor,
   DiffEditor,

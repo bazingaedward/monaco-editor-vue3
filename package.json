@@ -1,6 +1,6 @@
 {
   "name": "monaco-editor-vue3",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "keywords": [
     "Vue3",
     "monaco-editor"
@@ -33,8 +33,11 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "commit": "git add . && pnpx git-cz",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:build": "pnpm build && vitepress build docs",
+    "docs:build:fast": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "build:docs": "./scripts/build-docs.sh",
+    "deploy": "./scripts/deploy.sh"
   },
   "packageManager": "pnpm@8.15.1",
   "peerDependencies": {

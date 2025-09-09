@@ -592,18 +592,17 @@
               onRetry: handleRetry
             }, null, 8, ["error", "show-retry"])) : vue.createCommentVNode("", true)
           ], true) : vue.createCommentVNode("", true),
-          vue.withDirectives(vue.createElementVNode("div", {
+          vue.createElementVNode("div", {
             ref_key: "container",
             ref: container,
-            class: "monaco-editor-container"
-          }, null, 512), [
-            [vue.vShow, vue.unref(isReady) && !vue.unref(error)]
-          ])
+            class: "monaco-editor-container",
+            style: vue.normalizeStyle({ visibility: vue.unref(isReady) && !vue.unref(error) ? "visible" : "hidden" })
+          }, null, 4)
         ], 4);
       };
     }
   });
-  const CodeEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-591a3846"]]);
+  const CodeEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-bfb941e9"]]);
   const _sfc_main = /* @__PURE__ */ vue.defineComponent({
     __name: "DiffEditor",
     props: {
@@ -688,18 +687,17 @@
               onRetry: handleRetry
             }, null, 8, ["error", "show-retry"])) : vue.createCommentVNode("", true)
           ], true) : vue.createCommentVNode("", true),
-          vue.withDirectives(vue.createElementVNode("div", {
+          vue.createElementVNode("div", {
             ref_key: "container",
             ref: container,
-            class: "monaco-editor-container"
-          }, null, 512), [
-            [vue.vShow, vue.unref(isReady) && !vue.unref(error)]
-          ])
+            class: "monaco-editor-container",
+            style: vue.normalizeStyle({ visibility: vue.unref(isReady) && !vue.unref(error) ? "visible" : "hidden" })
+          }, null, 4)
         ], 4);
       };
     }
   });
-  const DiffEditor = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-9eb8d5bc"]]);
+  const DiffEditor = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5035138c"]]);
   exports2.CodeEditor = CodeEditor;
   exports2.DiffEditor = DiffEditor;
   exports2.createDefaultOptions = createDefaultOptions;

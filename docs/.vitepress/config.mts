@@ -182,22 +182,24 @@ export default defineConfig({
     },
     build: {
       target: 'esnext',
+      sourcemap: false,
+      chunkSizeWarningLimit: 2000,
       rollupOptions: {
+        external: ['monaco-editor'],
         output: {
-          manualChunks: {
-            'monaco-editor': ['monaco-editor'],
+          manualChunks: (id) => {
+            // 不对 Monaco Editor 进行分块
+            if (id.includes('monaco-editor')) {
+              return undefined;
+            }
           },
         },
       },
-    },
-    worker: {
-      format: 'es',
     },
     server: {
       fs: {
         allow: ['..', '../..']
       }
-    },
-    assetsInclude: ['**/*.worker.js']
+    }
   },
 });
