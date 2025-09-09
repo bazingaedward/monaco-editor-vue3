@@ -10,19 +10,19 @@
 ## Install
 
 ```bash
-pnpm install monaco-editor-vue3
+pnpm install monaco-editor-vue3 monaco-editor
 ```
 
 Or
 
 ```bash
-yarn add monaco-editor-vue3
+yarn add monaco-editor-vue3 monaco-editor
 ```
 
 Or
 
 ```bash
-npm i monaco-editor-vue3
+npm i monaco-editor-vue3 monaco-editor
 ```
 
 ## Usage
@@ -90,7 +90,7 @@ export default {
 ```
 
 ### Use ESM version with Vite
-
+https://stackblitz.com/edit/vitejs-vite-e8jjho?file=src%2FApp.vue
 [See Stackblitz Demo](https://stackblitz.com/edit/vitejs-vite-e8jjho)
 
 ### Use ESM version with rollup
