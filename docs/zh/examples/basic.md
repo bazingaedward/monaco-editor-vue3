@@ -12,6 +12,7 @@ DiffEditor 用于对比两个版本的代码差异，支持并排显示和高亮
 - 支持各种编程语言的语法高亮
 - 响应式布局
 
+<ClientOnly>
 <DiffEditor
 theme="vs"
 :options="options"
@@ -20,6 +21,7 @@ language="javascript"
 v-model:value="diff"
 :original="'world'"
 />
+</ClientOnly>
 
 
 支持完整的 JavaScript 和 TypeScript 语法高亮、智能提示、错误检查等功能。
@@ -30,6 +32,7 @@ v-model:value="diff"
 - 代码格式化
 - 智能重构建议
 
+<ClientOnly>
 <CodeEditor
 theme="vs"
 :options="options"
@@ -37,6 +40,7 @@ language="javascript"
 :height="600"
 v-model:value="tsString"
 />
+</ClientOnly>
 
 ## JSON 编辑器
 
@@ -48,6 +52,7 @@ v-model:value="tsString"
 - 支持对象和数组的折叠展开
 - 智能括号匹配
 
+<ClientOnly>
 <CodeEditor
 theme="vs"
 :options="options"
@@ -55,6 +60,7 @@ language="json"
 :height="600"
 v-model:value="jsonString"
 />
+</ClientOnly>
 
 ## CSS 编辑器
 
@@ -66,6 +72,7 @@ v-model:value="jsonString"
 - 选择器语法高亮
 - 响应式属性建议
 
+<ClientOnly>
 <CodeEditor
 theme="vs"
 :options="options"
@@ -73,6 +80,7 @@ language="css"
 :height="600"
 v-model:value="cssString"
 />
+</ClientOnly>
 
 ## HTML 编辑器
 
@@ -84,6 +92,7 @@ v-model:value="cssString"
 - 标签配对高亮
 - 嵌套结构可视化
 
+<ClientOnly>
 <CodeEditor
 theme="vs"
 :options="options"
@@ -91,6 +100,7 @@ language="html"
 :height="600"
 v-model:value="htmlString"
 />
+</ClientOnly>
 
 ## SQL 编辑器
 
@@ -102,6 +112,7 @@ v-model:value="htmlString"
 - 表名和字段名提示
 - 查询格式化
 
+<ClientOnly>
 <CodeEditor
 theme="vs"
 :options="options"
@@ -109,6 +120,7 @@ language="sql"
 :height="600"
 v-model:value="sqlString"
 />
+</ClientOnly>
 
 <script setup lang="ts">
 import { ref } from 'vue'
