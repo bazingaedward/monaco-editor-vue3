@@ -122,31 +122,6 @@ interface EditorEvents {
 }
 ```
 
-## 项目结构
-
-```
-monaco-editor-vue3/
-├── src/
-│   ├── CodeEditor.vue      # 代码编辑器组件
-│   ├── DiffEditor.vue      # 差异编辑器组件
-│   ├── hook.ts             # 核心 Hooks
-│   ├── typing.ts           # TypeScript 类型定义
-│   ├── utils.ts            # 工具函数
-│   ├── index.ts            # 主入口文件
-│   └── components/
-│       ├── MonacoLoading.vue     # 加载组件
-│       └── MonacoErrorBoundary.vue # 错误边界组件
-├── docs/                   # 文档
-├── examples/              # 示例
-└── tests/                # 测试文件
-```
-
-## 下一步
-
-- 查看 [安装指南](./guide/installation.md) 了解详细的安装步骤
-- 阅读 [基础使用](./guide/basic-usage.md) 学习基本用法
-- 探索 [API 参考](./api/index.md) 了解所有可用的 API
-- 查看 [示例集合](./examples/index.md) 获取实用的代码示例
 
 ## 社区与支持
 

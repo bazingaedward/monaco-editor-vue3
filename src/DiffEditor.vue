@@ -40,9 +40,9 @@
     
     <!-- 编辑器容器 -->
     <div 
-      v-show="isReady && !error"
       ref="container" 
       class="monaco-editor-container"
+      :style="{ visibility: isReady && !error ? 'visible' : 'hidden' }"
     />
   </div>
 </template>
