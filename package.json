@@ -1,6 +1,6 @@
 {
   "name": "monaco-editor-vue3",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "Vue3",
     "monaco-editor"
@@ -19,7 +19,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "dist/*.d.ts"
   ],
   "scripts": {
     "dev": "vite",
