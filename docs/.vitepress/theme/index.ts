@@ -1,34 +1,24 @@
 // .vitepress/theme/index.ts
-
-import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
-import cssWorker from 'monaco-editor/esm/vs/language/css/css.worker?worker';
-import htmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker';
-import jsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
-import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
 import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
-
-// @ts-expect-error
-self.MonacoEnvironment = {
-  // @ts-expect-error
-  getWorker(_, label) {
-    if (label === 'json') {
-      return new jsonWorker();
-    }
-    if (label === 'css' || label === 'scss' || label === 'less') {
-      return new cssWorker();
-    }
-    if (label === 'html' || label === 'handlebars' || label === 'razor') {
-      return new htmlWorker();
-    }
-    if (label === 'typescript' || label === 'javascript') {
-      return new tsWorker();
-    }
-    return new editorWorker();
-  },
-};
+import { CodeEditor, DiffEditor } from '../../../src/index.ts';
 
 export default {
   extends: DefaultTheme,
-  enhanceApp: ({ app }) => {},
+  enhanceApp({ app }) {
+    // 注册客户端安全的组件
+    app.component('CodeEditor', CodeEditor);
+    app.component('DiffEditor', DiffEditor);
+
+    // 在客户端环境中设置 Monaco Environment
+    if (typeof window !== 'undefined') {
+      // 设置 Monaco Environment (简化版本，避免 worker 问题)
+      (window as unknown as Record<string, unknown>).MonacoEnvironment = {
+        getWorkerUrl: (): string => {
+          // 返回一个空的 worker，避免加载问题
+          return 'data:text/javascript;charset=utf-8,';
+        },
+      };
+    }
+  },
 } satisfies Theme;

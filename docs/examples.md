@@ -23,10 +23,9 @@ v-model:value="tsString"
 
 <script setup lang="ts">
   import {ref, watch} from 'vue'
-  import {CodeEditor, DiffEditor} from '../dist/index.mjs'
   import {tsString, jsonString, cssString, htmlString, sqlString} from './constant'
 
-  const diff=ref('helld')
+  const diff=ref('hello')
 
   const options = {
   colorDecorators: true,

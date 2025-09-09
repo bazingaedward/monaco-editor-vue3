@@ -28,18 +28,31 @@ export default defineConfig({
   base: '/monaco-editor-vue3/',
   vite: {
     define: {
-      self: 'self',
-      navigator: 'navigator',
+      global: 'globalThis',
+    },
+    resolve: {
+      alias: {
+        'monaco-editor-vue3': '/src/index.ts',
+      },
+    },
+    optimizeDeps: {
+      include: ['monaco-editor'],
+    },
+    ssr: {
+      noExternal: ['monaco-editor-vue3'],
     },
     build: {
-      ssr: false,
+      target: 'esnext',
       rollupOptions: {
         output: {
-          globals: {
-            'monaco-editor': 'monaco',
+          manualChunks: {
+            'monaco-editor': ['monaco-editor'],
           },
         },
       },
+    },
+    worker: {
+      format: 'es',
     },
   },
 });

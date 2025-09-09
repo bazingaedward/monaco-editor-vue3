@@ -31,6 +31,6 @@
     }
   },
   "files": {
-    "includes": ["src/**/*", "docs/**/*", "typings/**/*", "*.ts", "*.js", "*.vue", "*.json"]
+    "includes": ["src/**/*.ts", "src/**/*.js", "docs/**/*", "typings/**/*", "*.ts", "*.js", "*.json"]
   }
 }
