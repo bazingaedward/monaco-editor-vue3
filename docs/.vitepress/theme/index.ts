@@ -3,6 +3,15 @@ import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import { defineComponent, h, onMounted, ref } from 'vue';
 import './style.css';
+import '../../../dist/style.css';
+
+// 声明 window.monaco 和 window.require 类型
+declare global {
+  interface Window {
+    monaco?: unknown;
+    require?: unknown;
+  }
+}
 
 // 创建智能的客户端组件
 const createSmartEditor = (editorType: 'CodeEditor' | 'DiffEditor') => {
@@ -28,34 +37,11 @@ const createSmartEditor = (editorType: 'CodeEditor' | 'DiffEditor') => {
         isLoading.value = true;
 
         try {
-          // 开发模式下直接导入源码，生产模式下导入构建产物
-          let module: any;
-          const isDev = typeof window !== 'undefined' && window.location.hostname === 'localhost';
-
-          if (isDev) {
-            // 开发模式：直接导入源码
-            module = await import('../../../src/index');
-          } else {
-            // 生产模式：使用绝对路径或 CDN
-            try {
-              // 生产模式：根据部署环境使用正确的路径
-              const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
-              const buildPath = `${baseUrl}/monaco-editor-vue3/dist/index.mjs`;
-              module = await import(buildPath);
-            } catch (fallbackError) {
-              // 方案2：回退到 CDN 或其他绝对 URL
-              console.warn('Failed to load from absolute path, trying alternative...', fallbackError);
-              // 这里可以添加 CDN 链接作为备选方案
-              // module = await import('https://cdn.example.com/monaco-editor-vue3/dist/index.mjs');
-              throw new Error('Monaco Editor build not found in production');
-            }
-          }
-
+          const module = await import('../../../dist/index.mjs');
           EditorComponent.value = module[editorType];
-          console.log('Monaco Editor loaded for', editorType, isDev ? '(dev mode)' : '(prod mode)');
           hasError.value = false;
         } catch (error) {
-          console.warn(`Could not load ${editorType}:`, error);
+          console.warn(error);
           hasError.value = true;
         } finally {
           isLoading.value = false;
@@ -113,9 +99,9 @@ const createSmartEditor = (editorType: 'CodeEditor' | 'DiffEditor') => {
           ...props,
           ...attrs,
           onUpdateValue: (value: string) => emit('update:value', value),
-          onChange: (...args: any[]) => emit('change', ...args),
-          onReady: (...args: any[]) => emit('ready', ...args),
-          onError: (...args: any[]) => emit('error', ...args),
+          onChange: (...args: unknown[]) => emit('change', ...args),
+          onReady: (...args: unknown[]) => emit('ready', ...args),
+          onError: (...args: unknown[]) => emit('error', ...args),
         });
       };
     },

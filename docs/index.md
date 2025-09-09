@@ -4,7 +4,6 @@ layout: home
 
 hero:
   name: 'Monaco Editor Vue3'
-  text: 'Monaco Editor for Vue 3'
   tagline: 'A powerful and feature-rich code editor component built on top of Microsoft Monaco Editor'
   actions:
     - theme: brand

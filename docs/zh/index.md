@@ -3,7 +3,6 @@
 layout: home
 
 hero:
-  name: 'Monaco Editor Vue3'
   text: 'Vue 3 的 Monaco 编辑器'
   tagline: '基于微软 Monaco Editor 构建的功能强大的 Vue 3 代码编辑器组件'
   actions:
