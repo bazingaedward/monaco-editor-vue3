@@ -164,7 +164,7 @@ You can listen to the editor events directly like this:
 
 ```vue
 <template>
-  <MonacoEditor v-model="code" @editorDidMount="editorDidMount" />
+  <MonacoEditor v-model:value="code" @editorDidMount="editorDidMount" />
 </template>
 
 <script>
