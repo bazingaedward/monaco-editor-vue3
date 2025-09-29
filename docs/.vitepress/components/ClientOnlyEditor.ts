@@ -1,5 +1,4 @@
 import { defineAsyncComponent } from 'vue';
-import '../../../dist/style.css';
 
 // 客户端组件，仅在浏览器环境中加载
 export const CodeEditor = defineAsyncComponent(async () => {

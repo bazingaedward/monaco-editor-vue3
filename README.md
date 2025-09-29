@@ -38,23 +38,6 @@ yarn add monaco-editor-vue3 monaco-editor
 npm install monaco-editor-vue3 monaco-editor
 ```
 
-## 🎨 Styles Import
-
-**Important:** You need to import the CSS styles for Monaco Editor Vue3 to work properly:
-
-```ts
-// In your main.ts or App.vue
-import 'monaco-editor-vue3/dist/style.css'
-```
-
-Or in your CSS file:
-
-```css
-@import 'monaco-editor-vue3/dist/style.css';
-```
-
-**Note:** The CSS file contains essential styles for the editor's loading states, error boundaries, and layout. Without it, the editor may not display correctly.
-
 ## 🚀 Quick Start
 
 ### Basic CodeEditor
@@ -74,8 +57,6 @@ Or in your CSS file:
 <script setup>
 import { ref } from 'vue';
 import { CodeEditor } from 'monaco-editor-vue3';
-// Import the CSS styles
-import 'monaco-editor-vue3/dist/style.css';
 
 const code = ref(`function hello() {
   console.log('Hello, Monaco Editor Vue3!');
@@ -106,8 +87,6 @@ const editorOptions = {
 <script setup>
 import { ref } from 'vue';
 import { DiffEditor } from 'monaco-editor-vue3';
-// Import the CSS styles
-import 'monaco-editor-vue3/dist/style.css';
 
 const originalCode = ref('const x = 1;');
 const modifiedCode = ref('const x = 2;');
@@ -146,22 +125,14 @@ module.exports = {
 };
 ```
 
-Don't forget to import the styles in your main entry file:
-
-```js
-// main.js or main.ts
-import 'monaco-editor-vue3/dist/style.css';
-```
-
 ### Vite
 
-For Vite projects, the CSS import is handled automatically. Just import the styles in your main file:
+For Vite projects, the CSS import is handled automatically.
 
 ```ts
 // main.ts
 import { createApp } from 'vue';
 import App from './App.vue';
-import 'monaco-editor-vue3/dist/style.css'; // Import styles
 
 createApp(App).mount('#app');
 ```
@@ -199,13 +170,6 @@ export default {
     commonjs(),
   ],
 };
-```
-
-Make sure to import the CSS in your application:
-
-```js
-// main.js
-import 'monaco-editor-vue3/dist/style.css';
 ```
 
 ## 🎨 Supported Languages & Themes
@@ -346,10 +310,7 @@ Monaco Editor Vue3 is built with TypeScript and provides comprehensive type defi
 <script setup lang="ts">
 import { ref } from 'vue';
 import { CodeEditor, type EditorOptions } from 'monaco-editor-vue3';
-// Import required styles
-import 'monaco-editor-vue3/dist/style.css';
 
-// Types are automatically inferred
 const code = ref<string>('console.log("Hello World")');
 const options: EditorOptions = {
   fontSize: 14,
@@ -391,20 +352,13 @@ declare module 'monaco-editor-vue3' {
 
 ### Editor Not Displaying Correctly
 
-If the Monaco Editor appears broken or unstyled, make sure you have imported the required CSS:
-
-```ts
-// In your main.ts/main.js or component
-import 'monaco-editor-vue3/dist/style.css';
-```
-
 ### Common Issues
 
 | Issue | Solution |
 |-------|----------|
-| Editor container is empty | Import `monaco-editor-vue3/dist/style.css` |
-| Loading spinner not showing | Ensure CSS is imported and container has height |
-| Error boundary not styled | Import the CSS file in your main entry point |
+| Editor container is empty | 样式文件依赖说明已移除 |
+| Loading spinner not showing | 样式文件依赖说明已移除 |
+| Error boundary not styled | 样式文件依赖说明已移除 |
 | Custom themes not working | Check if Monaco Editor worker files are loaded correctly |
 
 ### Build Issues

@@ -381,19 +381,10 @@
       destroy: destroyEditor
     };
   };
-  const _withScopeId$1 = (n) => (vue.pushScopeId("data-v-5ca71790"), n = n(), vue.popScopeId(), n);
-  const _hoisted_1$1 = { class: "monaco-loading-container" };
-  const _hoisted_2$1 = { class: "monaco-loading-content" };
-  const _hoisted_3$1 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ vue.createElementVNode("div", { class: "monaco-loading-spinner" }, [
-    /* @__PURE__ */ vue.createElementVNode("div", { class: "spinner" })
-  ], -1));
-  const _hoisted_4 = { class: "monaco-loading-text" };
-  const _hoisted_5$1 = {
-    key: 0,
-    class: "monaco-loading-progress"
-  };
-  const _hoisted_6$1 = { class: "progress-bar" };
-  const _hoisted_7$1 = { class: "progress-text" };
+  const _hoisted_1$1 = /* @__PURE__ */ vue.createElementVNode("div", null, [
+    /* @__PURE__ */ vue.createElementVNode("div")
+  ], -1);
+  const _hoisted_2$1 = { key: 0 };
   const _sfc_main$3 = /* @__PURE__ */ vue.defineComponent({
     __name: "MonacoLoading",
     props: {
@@ -403,48 +394,54 @@
     },
     setup(__props) {
       return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1$1, [
-          vue.createElementVNode("div", _hoisted_2$1, [
-            _hoisted_3$1,
-            vue.createElementVNode("div", _hoisted_4, vue.toDisplayString(_ctx.loadingText), 1),
-            _ctx.showProgress ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_5$1, [
-              vue.createElementVNode("div", _hoisted_6$1, [
+        return vue.openBlock(), vue.createElementBlock("div", null, [
+          vue.createElementVNode("div", null, [
+            _hoisted_1$1,
+            vue.createElementVNode("div", null, vue.toDisplayString(_ctx.loadingText), 1),
+            _ctx.showProgress ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$1, [
+              vue.createElementVNode("div", null, [
                 vue.createElementVNode("div", {
-                  class: "progress-fill",
                   style: vue.normalizeStyle({ width: `${_ctx.progress}%` })
                 }, null, 4)
               ]),
-              vue.createElementVNode("div", _hoisted_7$1, vue.toDisplayString(_ctx.progress) + "%", 1)
+              vue.createElementVNode("div", null, vue.toDisplayString(_ctx.progress) + "%", 1)
             ])) : vue.createCommentVNode("", true)
           ])
         ]);
       };
     }
   });
-  const _export_sfc = (sfc, props) => {
-    const target = sfc.__vccOpts || sfc;
-    for (const [key, val] of props) {
-      target[key] = val;
-    }
-    return target;
-  };
-  const MonacoLoading = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-5ca71790"]]);
-  const _withScopeId = (n) => (vue.pushScopeId("data-v-885d6cf3"), n = n(), vue.popScopeId(), n);
-  const _hoisted_1 = { class: "monaco-error-boundary" };
-  const _hoisted_2 = { class: "monaco-error-content" };
-  const _hoisted_3 = /* @__PURE__ */ vue.createStaticVNode('<div class="monaco-error-icon" data-v-885d6cf3><svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-885d6cf3><circle cx="12" cy="12" r="10" stroke="#dc3545" stroke-width="2" data-v-885d6cf3></circle><path d="m15 9-6 6" stroke="#dc3545" stroke-width="2" data-v-885d6cf3></path><path d="m9 9 6 6" stroke="#dc3545" stroke-width="2" data-v-885d6cf3></path></svg></div><div class="monaco-error-title" data-v-885d6cf3> Monaco Editor Error </div>', 2);
-  const _hoisted_5 = { class: "monaco-error-message" };
-  const _hoisted_6 = {
-    key: 0,
-    class: "monaco-error-details"
-  };
-  const _hoisted_7 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ vue.createElementVNode("summary", null, "Error Details", -1));
-  const _hoisted_8 = { class: "monaco-error-actions" };
-  const _hoisted_9 = /* @__PURE__ */ vue.createStaticVNode('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-885d6cf3><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path><path d="M21 3v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path><path d="M3 21v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path></svg>', 1);
-  const _hoisted_10 = {
-    key: 1,
-    class: "monaco-error-code"
-  };
+  const _hoisted_1 = /* @__PURE__ */ vue.createElementVNode("div", null, [
+    /* @__PURE__ */ vue.createElementVNode("svg", {
+      width: "48",
+      height: "48",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, [
+      /* @__PURE__ */ vue.createElementVNode("circle", {
+        cx: "12",
+        cy: "12",
+        r: "10",
+        stroke: "#dc3545",
+        "stroke-width": "2"
+      }),
+      /* @__PURE__ */ vue.createElementVNode("path", {
+        d: "m15 9-6 6",
+        stroke: "#dc3545",
+        "stroke-width": "2"
+      }),
+      /* @__PURE__ */ vue.createElementVNode("path", {
+        d: "m9 9 6 6",
+        stroke: "#dc3545",
+        "stroke-width": "2"
+      })
+    ])
+  ], -1);
+  const _hoisted_2 = /* @__PURE__ */ vue.createElementVNode("div", null, "Monaco Editor Error", -1);
+  const _hoisted_3 = { key: 0 };
+  const _hoisted_4 = /* @__PURE__ */ vue.createElementVNode("summary", null, "Error Details", -1);
+  const _hoisted_5 = { key: 1 };
   const _sfc_main$2 = /* @__PURE__ */ vue.defineComponent({
     __name: "MonacoErrorBoundary",
     props: {
@@ -472,43 +469,37 @@
         emit("report", props.error);
       };
       return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
-          vue.createElementVNode("div", _hoisted_2, [
-            _hoisted_3,
-            vue.createElementVNode("div", _hoisted_5, vue.toDisplayString(_ctx.error.message), 1),
-            _ctx.error.details && _ctx.showDetails ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_6, [
+        return vue.openBlock(), vue.createElementBlock("div", null, [
+          vue.createElementVNode("div", null, [
+            _hoisted_1,
+            _hoisted_2,
+            vue.createElementVNode("div", null, vue.toDisplayString(_ctx.error.message), 1),
+            _ctx.error.details && _ctx.showDetails ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_3, [
               vue.createElementVNode("details", null, [
-                _hoisted_7,
+                _hoisted_4,
                 vue.createElementVNode("pre", null, vue.toDisplayString(_ctx.error.details), 1)
               ])
             ])) : vue.createCommentVNode("", true),
-            vue.createElementVNode("div", _hoisted_8, [
+            vue.createElementVNode("div", null, [
               _ctx.error.recoverable && _ctx.showRetry ? (vue.openBlock(), vue.createElementBlock("button", {
                 key: 0,
-                onClick: handleRetry,
-                class: "monaco-error-button retry"
-              }, [
-                _hoisted_9,
-                vue.createTextVNode(" Retry ")
-              ])) : vue.createCommentVNode("", true),
+                onClick: handleRetry
+              }, "Retry")) : vue.createCommentVNode("", true),
               _ctx.showReload ? (vue.openBlock(), vue.createElementBlock("button", {
                 key: 1,
-                onClick: handleReload,
-                class: "monaco-error-button reload"
-              }, " Reload Page ")) : vue.createCommentVNode("", true),
+                onClick: handleReload
+              }, "Reload Page")) : vue.createCommentVNode("", true),
               _ctx.showReport ? (vue.openBlock(), vue.createElementBlock("button", {
                 key: 2,
-                onClick: handleReport,
-                class: "monaco-error-button report"
-              }, " Report Issue ")) : vue.createCommentVNode("", true)
+                onClick: handleReport
+              }, "Report Issue")) : vue.createCommentVNode("", true)
             ]),
-            errorCode.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_10, " Error Code: " + vue.toDisplayString(errorCode.value), 1)) : vue.createCommentVNode("", true)
+            errorCode.value ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_5, "Error Code: " + vue.toDisplayString(errorCode.value), 1)) : vue.createCommentVNode("", true)
           ])
         ]);
       };
     }
   });
-  const MonacoErrorBoundary = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-885d6cf3"]]);
   const _sfc_main$1 = /* @__PURE__ */ vue.defineComponent({
     __name: "CodeEditor",
     props: {
@@ -532,11 +523,16 @@
       const emit = __emit;
       const { container, loading, error, isReady, retry } = useCodeEditor(props, emit);
       const { width, height } = vue.toRefs(props);
-      const style = vue.computed(() => ({
+      const editorWrapperStyle = vue.computed(() => ({
         width: formatSize(width.value),
         height: formatSize(height.value),
         textAlign: "left",
         position: "relative"
+      }));
+      const editorContainerStyle = vue.computed(() => ({
+        width: "100%",
+        height: "100%",
+        visibility: isReady.value && !error.value ? "visible" : "hidden"
       }));
       const handleRetry = () => {
         retry();
@@ -560,7 +556,7 @@
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("div", {
           ref: "editorContainer",
-          style: vue.normalizeStyle(style.value),
+          style: vue.normalizeStyle(editorWrapperStyle.value),
           class: "monaco-code-editor"
         }, [
           !vue.unref(isReady) && !vue.unref(error) ? vue.renderSlot(_ctx.$slots, "loading", {
@@ -570,19 +566,19 @@
             progress: vue.unref(loading).progress,
             showProgress: _ctx.showProgress
           }, () => [
-            _ctx.useDefaultLoading ? (vue.openBlock(), vue.createBlock(MonacoLoading, {
+            _ctx.useDefaultLoading ? (vue.openBlock(), vue.createBlock(_sfc_main$3, {
               key: 0,
               "loading-text": _ctx.loadingText || vue.unref(loading).loadingText,
               progress: vue.unref(loading).progress,
               "show-progress": _ctx.showProgress
             }, null, 8, ["loading-text", "progress", "show-progress"])) : vue.createCommentVNode("", true)
-          ], true) : vue.unref(error) && _ctx.showErrorBoundary ? vue.renderSlot(_ctx.$slots, "error", {
+          ]) : vue.unref(error) && _ctx.showErrorBoundary ? vue.renderSlot(_ctx.$slots, "error", {
             key: 1,
             error: vue.unref(error),
             retry: handleRetry,
             retryable: _ctx.retryable
           }, () => [
-            _ctx.useDefaultErrorBoundary ? (vue.openBlock(), vue.createBlock(MonacoErrorBoundary, {
+            _ctx.useDefaultErrorBoundary ? (vue.openBlock(), vue.createBlock(_sfc_main$2, {
               key: 0,
               error: vue.unref(error),
               "show-retry": _ctx.retryable,
@@ -591,18 +587,16 @@
               "show-report": false,
               onRetry: handleRetry
             }, null, 8, ["error", "show-retry"])) : vue.createCommentVNode("", true)
-          ], true) : vue.createCommentVNode("", true),
+          ]) : vue.createCommentVNode("", true),
           vue.createElementVNode("div", {
             ref_key: "container",
             ref: container,
-            class: "monaco-editor-container",
-            style: vue.normalizeStyle({ visibility: vue.unref(isReady) && !vue.unref(error) ? "visible" : "hidden" })
+            style: vue.normalizeStyle(editorContainerStyle.value)
           }, null, 4)
         ], 4);
       };
     }
   });
-  const CodeEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-bfb941e9"]]);
   const _sfc_main = /* @__PURE__ */ vue.defineComponent({
     __name: "DiffEditor",
     props: {
@@ -655,8 +649,7 @@
       return (_ctx, _cache) => {
         return vue.openBlock(), vue.createElementBlock("div", {
           ref: "editorContainer",
-          style: vue.normalizeStyle(style.value),
-          class: "monaco-diff-editor"
+          style: vue.normalizeStyle(style.value)
         }, [
           !vue.unref(isReady) && !vue.unref(error) ? vue.renderSlot(_ctx.$slots, "loading", {
             key: 0,
@@ -665,19 +658,19 @@
             progress: vue.unref(loading).progress,
             showProgress: _ctx.showProgress
           }, () => [
-            _ctx.useDefaultLoading ? (vue.openBlock(), vue.createBlock(MonacoLoading, {
+            _ctx.useDefaultLoading ? (vue.openBlock(), vue.createBlock(_sfc_main$3, {
               key: 0,
               "loading-text": _ctx.loadingText || vue.unref(loading).loadingText,
               progress: vue.unref(loading).progress,
               "show-progress": _ctx.showProgress
             }, null, 8, ["loading-text", "progress", "show-progress"])) : vue.createCommentVNode("", true)
-          ], true) : vue.unref(error) && _ctx.showErrorBoundary ? vue.renderSlot(_ctx.$slots, "error", {
+          ]) : vue.unref(error) && _ctx.showErrorBoundary ? vue.renderSlot(_ctx.$slots, "error", {
             key: 1,
             error: vue.unref(error),
             retry: handleRetry,
             retryable: _ctx.retryable
           }, () => [
-            _ctx.useDefaultErrorBoundary ? (vue.openBlock(), vue.createBlock(MonacoErrorBoundary, {
+            _ctx.useDefaultErrorBoundary ? (vue.openBlock(), vue.createBlock(_sfc_main$2, {
               key: 0,
               error: vue.unref(error),
               "show-retry": _ctx.retryable,
@@ -686,23 +679,21 @@
               "show-report": false,
               onRetry: handleRetry
             }, null, 8, ["error", "show-retry"])) : vue.createCommentVNode("", true)
-          ], true) : vue.createCommentVNode("", true),
+          ]) : vue.createCommentVNode("", true),
           vue.createElementVNode("div", {
             ref_key: "container",
             ref: container,
-            class: "monaco-editor-container",
-            style: vue.normalizeStyle({ visibility: vue.unref(isReady) && !vue.unref(error) ? "visible" : "hidden" })
+            style: vue.normalizeStyle({ width: "100%", height: "100%", visibility: vue.unref(isReady) && !vue.unref(error) ? "visible" : "hidden" })
           }, null, 4)
         ], 4);
       };
     }
   });
-  const DiffEditor = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5035138c"]]);
-  exports2.CodeEditor = CodeEditor;
-  exports2.DiffEditor = DiffEditor;
+  exports2.CodeEditor = _sfc_main$1;
+  exports2.DiffEditor = _sfc_main;
   exports2.createDefaultOptions = createDefaultOptions;
   exports2.deepMerge = deepMerge;
-  exports2.default = CodeEditor;
+  exports2.default = _sfc_main$1;
   exports2.formatSize = formatSize;
   exports2.isSupportedLanguage = isSupportedLanguage;
   exports2.useCodeEditor = useCodeEditor;

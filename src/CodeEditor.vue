@@ -1,5 +1,5 @@
 <template>
-  <div ref="editorContainer" :style="style" class="monaco-code-editor">
+  <div ref="editorContainer" :style="editorWrapperStyle" class="monaco-code-editor">
     <!-- 自定义加载状态插槽 -->
     <slot
       v-if="!isReady && !error"
@@ -40,8 +40,7 @@
     <!-- 编辑器容器 -->
     <div 
       ref="container" 
-      class="monaco-editor-container"
-      :style="{ visibility: isReady && !error ? 'visible' : 'hidden' }"
+      :style="editorContainerStyle"
     />
   </div>
 </template>
@@ -85,11 +84,17 @@ const { container, loading, error, isReady, retry } = useCodeEditor(props, emit)
 
 const { width, height } = toRefs(props);
 
-const style = computed(() => ({
+const editorWrapperStyle = computed(() => ({
   width: formatSize(width.value),
   height: formatSize(height.value),
   textAlign: 'left' as const,
   position: 'relative' as const,
+}));
+
+const editorContainerStyle = computed(() => ({
+  width: '100%',
+  height: '100%',
+  visibility: isReady.value && !error.value ? 'visible' : 'hidden',
 }));
 
 const handleRetry = () => {
@@ -116,16 +121,3 @@ watch(isReady, (ready) => {
   }
 });
 </script>
-
-<style scoped>
-.monaco-code-editor {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.monaco-editor-container {
-  width: 100%;
-  height: 100%;
-}
-</style>

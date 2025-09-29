@@ -3,7 +3,6 @@ import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import { defineComponent, h, onMounted, ref } from 'vue';
 import './style.css';
-import '../../../dist/style.css';
 
 // 声明 window.monaco 和 window.require 类型
 declare global {

@@ -1,4 +1,4 @@
-import { ref, onMounted, nextTick, onUnmounted, watch, defineComponent, openBlock, createElementBlock, createElementVNode, toDisplayString, normalizeStyle, createCommentVNode, pushScopeId, popScopeId, computed, createTextVNode, createStaticVNode, toRefs, unref, renderSlot, createBlock } from "vue";
+import { ref, onMounted, nextTick, onUnmounted, watch, defineComponent, openBlock, createElementBlock, createElementVNode, toDisplayString, normalizeStyle, createCommentVNode, computed, toRefs, unref, renderSlot, createBlock } from "vue";
 import { editor } from "monaco-editor";
 const warnMsg = (msg) => {
   console.warn(`[MonacoEditorVue3]: ${msg}`);
@@ -379,19 +379,10 @@ const useDiffEditor = (props, emit) => {
     destroy: destroyEditor
   };
 };
-const _withScopeId$1 = (n) => (pushScopeId("data-v-5ca71790"), n = n(), popScopeId(), n);
-const _hoisted_1$1 = { class: "monaco-loading-container" };
-const _hoisted_2$1 = { class: "monaco-loading-content" };
-const _hoisted_3$1 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", { class: "monaco-loading-spinner" }, [
-  /* @__PURE__ */ createElementVNode("div", { class: "spinner" })
-], -1));
-const _hoisted_4 = { class: "monaco-loading-text" };
-const _hoisted_5$1 = {
-  key: 0,
-  class: "monaco-loading-progress"
-};
-const _hoisted_6$1 = { class: "progress-bar" };
-const _hoisted_7$1 = { class: "progress-text" };
+const _hoisted_1$1 = /* @__PURE__ */ createElementVNode("div", null, [
+  /* @__PURE__ */ createElementVNode("div")
+], -1);
+const _hoisted_2$1 = { key: 0 };
 const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "MonacoLoading",
   props: {
@@ -401,48 +392,54 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$1, [
-        createElementVNode("div", _hoisted_2$1, [
-          _hoisted_3$1,
-          createElementVNode("div", _hoisted_4, toDisplayString(_ctx.loadingText), 1),
-          _ctx.showProgress ? (openBlock(), createElementBlock("div", _hoisted_5$1, [
-            createElementVNode("div", _hoisted_6$1, [
+      return openBlock(), createElementBlock("div", null, [
+        createElementVNode("div", null, [
+          _hoisted_1$1,
+          createElementVNode("div", null, toDisplayString(_ctx.loadingText), 1),
+          _ctx.showProgress ? (openBlock(), createElementBlock("div", _hoisted_2$1, [
+            createElementVNode("div", null, [
               createElementVNode("div", {
-                class: "progress-fill",
                 style: normalizeStyle({ width: `${_ctx.progress}%` })
               }, null, 4)
             ]),
-            createElementVNode("div", _hoisted_7$1, toDisplayString(_ctx.progress) + "%", 1)
+            createElementVNode("div", null, toDisplayString(_ctx.progress) + "%", 1)
           ])) : createCommentVNode("", true)
         ])
       ]);
     };
   }
 });
-const _export_sfc = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
-    target[key] = val;
-  }
-  return target;
-};
-const MonacoLoading = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-5ca71790"]]);
-const _withScopeId = (n) => (pushScopeId("data-v-885d6cf3"), n = n(), popScopeId(), n);
-const _hoisted_1 = { class: "monaco-error-boundary" };
-const _hoisted_2 = { class: "monaco-error-content" };
-const _hoisted_3 = /* @__PURE__ */ createStaticVNode('<div class="monaco-error-icon" data-v-885d6cf3><svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-885d6cf3><circle cx="12" cy="12" r="10" stroke="#dc3545" stroke-width="2" data-v-885d6cf3></circle><path d="m15 9-6 6" stroke="#dc3545" stroke-width="2" data-v-885d6cf3></path><path d="m9 9 6 6" stroke="#dc3545" stroke-width="2" data-v-885d6cf3></path></svg></div><div class="monaco-error-title" data-v-885d6cf3> Monaco Editor Error </div>', 2);
-const _hoisted_5 = { class: "monaco-error-message" };
-const _hoisted_6 = {
-  key: 0,
-  class: "monaco-error-details"
-};
-const _hoisted_7 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("summary", null, "Error Details", -1));
-const _hoisted_8 = { class: "monaco-error-actions" };
-const _hoisted_9 = /* @__PURE__ */ createStaticVNode('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-885d6cf3><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path><path d="M21 3v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path><path d="M3 21v-5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-885d6cf3></path></svg>', 1);
-const _hoisted_10 = {
-  key: 1,
-  class: "monaco-error-code"
-};
+const _hoisted_1 = /* @__PURE__ */ createElementVNode("div", null, [
+  /* @__PURE__ */ createElementVNode("svg", {
+    width: "48",
+    height: "48",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, [
+    /* @__PURE__ */ createElementVNode("circle", {
+      cx: "12",
+      cy: "12",
+      r: "10",
+      stroke: "#dc3545",
+      "stroke-width": "2"
+    }),
+    /* @__PURE__ */ createElementVNode("path", {
+      d: "m15 9-6 6",
+      stroke: "#dc3545",
+      "stroke-width": "2"
+    }),
+    /* @__PURE__ */ createElementVNode("path", {
+      d: "m9 9 6 6",
+      stroke: "#dc3545",
+      "stroke-width": "2"
+    })
+  ])
+], -1);
+const _hoisted_2 = /* @__PURE__ */ createElementVNode("div", null, "Monaco Editor Error", -1);
+const _hoisted_3 = { key: 0 };
+const _hoisted_4 = /* @__PURE__ */ createElementVNode("summary", null, "Error Details", -1);
+const _hoisted_5 = { key: 1 };
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "MonacoErrorBoundary",
   props: {
@@ -470,43 +467,37 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       emit("report", props.error);
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1, [
-        createElementVNode("div", _hoisted_2, [
-          _hoisted_3,
-          createElementVNode("div", _hoisted_5, toDisplayString(_ctx.error.message), 1),
-          _ctx.error.details && _ctx.showDetails ? (openBlock(), createElementBlock("div", _hoisted_6, [
+      return openBlock(), createElementBlock("div", null, [
+        createElementVNode("div", null, [
+          _hoisted_1,
+          _hoisted_2,
+          createElementVNode("div", null, toDisplayString(_ctx.error.message), 1),
+          _ctx.error.details && _ctx.showDetails ? (openBlock(), createElementBlock("div", _hoisted_3, [
             createElementVNode("details", null, [
-              _hoisted_7,
+              _hoisted_4,
               createElementVNode("pre", null, toDisplayString(_ctx.error.details), 1)
             ])
           ])) : createCommentVNode("", true),
-          createElementVNode("div", _hoisted_8, [
+          createElementVNode("div", null, [
             _ctx.error.recoverable && _ctx.showRetry ? (openBlock(), createElementBlock("button", {
               key: 0,
-              onClick: handleRetry,
-              class: "monaco-error-button retry"
-            }, [
-              _hoisted_9,
-              createTextVNode(" Retry ")
-            ])) : createCommentVNode("", true),
+              onClick: handleRetry
+            }, "Retry")) : createCommentVNode("", true),
             _ctx.showReload ? (openBlock(), createElementBlock("button", {
               key: 1,
-              onClick: handleReload,
-              class: "monaco-error-button reload"
-            }, " Reload Page ")) : createCommentVNode("", true),
+              onClick: handleReload
+            }, "Reload Page")) : createCommentVNode("", true),
             _ctx.showReport ? (openBlock(), createElementBlock("button", {
               key: 2,
-              onClick: handleReport,
-              class: "monaco-error-button report"
-            }, " Report Issue ")) : createCommentVNode("", true)
+              onClick: handleReport
+            }, "Report Issue")) : createCommentVNode("", true)
           ]),
-          errorCode.value ? (openBlock(), createElementBlock("div", _hoisted_10, " Error Code: " + toDisplayString(errorCode.value), 1)) : createCommentVNode("", true)
+          errorCode.value ? (openBlock(), createElementBlock("div", _hoisted_5, "Error Code: " + toDisplayString(errorCode.value), 1)) : createCommentVNode("", true)
         ])
       ]);
     };
   }
 });
-const MonacoErrorBoundary = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-885d6cf3"]]);
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "CodeEditor",
   props: {
@@ -530,11 +521,16 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const emit = __emit;
     const { container, loading, error, isReady, retry } = useCodeEditor(props, emit);
     const { width, height } = toRefs(props);
-    const style = computed(() => ({
+    const editorWrapperStyle = computed(() => ({
       width: formatSize(width.value),
       height: formatSize(height.value),
       textAlign: "left",
       position: "relative"
+    }));
+    const editorContainerStyle = computed(() => ({
+      width: "100%",
+      height: "100%",
+      visibility: isReady.value && !error.value ? "visible" : "hidden"
     }));
     const handleRetry = () => {
       retry();
@@ -558,7 +554,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
         ref: "editorContainer",
-        style: normalizeStyle(style.value),
+        style: normalizeStyle(editorWrapperStyle.value),
         class: "monaco-code-editor"
       }, [
         !unref(isReady) && !unref(error) ? renderSlot(_ctx.$slots, "loading", {
@@ -568,19 +564,19 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
           progress: unref(loading).progress,
           showProgress: _ctx.showProgress
         }, () => [
-          _ctx.useDefaultLoading ? (openBlock(), createBlock(MonacoLoading, {
+          _ctx.useDefaultLoading ? (openBlock(), createBlock(_sfc_main$3, {
             key: 0,
             "loading-text": _ctx.loadingText || unref(loading).loadingText,
             progress: unref(loading).progress,
             "show-progress": _ctx.showProgress
           }, null, 8, ["loading-text", "progress", "show-progress"])) : createCommentVNode("", true)
-        ], true) : unref(error) && _ctx.showErrorBoundary ? renderSlot(_ctx.$slots, "error", {
+        ]) : unref(error) && _ctx.showErrorBoundary ? renderSlot(_ctx.$slots, "error", {
           key: 1,
           error: unref(error),
           retry: handleRetry,
           retryable: _ctx.retryable
         }, () => [
-          _ctx.useDefaultErrorBoundary ? (openBlock(), createBlock(MonacoErrorBoundary, {
+          _ctx.useDefaultErrorBoundary ? (openBlock(), createBlock(_sfc_main$2, {
             key: 0,
             error: unref(error),
             "show-retry": _ctx.retryable,
@@ -589,18 +585,16 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             "show-report": false,
             onRetry: handleRetry
           }, null, 8, ["error", "show-retry"])) : createCommentVNode("", true)
-        ], true) : createCommentVNode("", true),
+        ]) : createCommentVNode("", true),
         createElementVNode("div", {
           ref_key: "container",
           ref: container,
-          class: "monaco-editor-container",
-          style: normalizeStyle({ visibility: unref(isReady) && !unref(error) ? "visible" : "hidden" })
+          style: normalizeStyle(editorContainerStyle.value)
         }, null, 4)
       ], 4);
     };
   }
 });
-const CodeEditor = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-bfb941e9"]]);
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "DiffEditor",
   props: {
@@ -653,8 +647,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
         ref: "editorContainer",
-        style: normalizeStyle(style.value),
-        class: "monaco-diff-editor"
+        style: normalizeStyle(style.value)
       }, [
         !unref(isReady) && !unref(error) ? renderSlot(_ctx.$slots, "loading", {
           key: 0,
@@ -663,19 +656,19 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           progress: unref(loading).progress,
           showProgress: _ctx.showProgress
         }, () => [
-          _ctx.useDefaultLoading ? (openBlock(), createBlock(MonacoLoading, {
+          _ctx.useDefaultLoading ? (openBlock(), createBlock(_sfc_main$3, {
             key: 0,
             "loading-text": _ctx.loadingText || unref(loading).loadingText,
             progress: unref(loading).progress,
             "show-progress": _ctx.showProgress
           }, null, 8, ["loading-text", "progress", "show-progress"])) : createCommentVNode("", true)
-        ], true) : unref(error) && _ctx.showErrorBoundary ? renderSlot(_ctx.$slots, "error", {
+        ]) : unref(error) && _ctx.showErrorBoundary ? renderSlot(_ctx.$slots, "error", {
           key: 1,
           error: unref(error),
           retry: handleRetry,
           retryable: _ctx.retryable
         }, () => [
-          _ctx.useDefaultErrorBoundary ? (openBlock(), createBlock(MonacoErrorBoundary, {
+          _ctx.useDefaultErrorBoundary ? (openBlock(), createBlock(_sfc_main$2, {
             key: 0,
             error: unref(error),
             "show-retry": _ctx.retryable,
@@ -684,24 +677,22 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             "show-report": false,
             onRetry: handleRetry
           }, null, 8, ["error", "show-retry"])) : createCommentVNode("", true)
-        ], true) : createCommentVNode("", true),
+        ]) : createCommentVNode("", true),
         createElementVNode("div", {
           ref_key: "container",
           ref: container,
-          class: "monaco-editor-container",
-          style: normalizeStyle({ visibility: unref(isReady) && !unref(error) ? "visible" : "hidden" })
+          style: normalizeStyle({ width: "100%", height: "100%", visibility: unref(isReady) && !unref(error) ? "visible" : "hidden" })
         }, null, 4)
       ], 4);
     };
   }
 });
-const DiffEditor = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5035138c"]]);
 export {
-  CodeEditor,
-  DiffEditor,
+  _sfc_main$1 as CodeEditor,
+  _sfc_main as DiffEditor,
   createDefaultOptions,
   deepMerge,
-  CodeEditor as default,
+  _sfc_main$1 as default,
   formatSize,
   isSupportedLanguage,
   useCodeEditor,

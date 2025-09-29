@@ -1,5 +1,5 @@
 <template>
-  <div ref="editorContainer" :style="style" class="monaco-diff-editor">
+  <div ref="editorContainer" :style="style">
     <!-- 自定义加载状态插槽 -->
     <slot
       v-if="!isReady && !error"
@@ -41,8 +41,7 @@
     <!-- 编辑器容器 -->
     <div 
       ref="container" 
-      class="monaco-editor-container"
-      :style="{ visibility: isReady && !error ? 'visible' : 'hidden' }"
+      :style="{ width: '100%', height: '100%', visibility: isReady && !error ? 'visible' : 'hidden' }"
     />
   </div>
 </template>
@@ -118,16 +117,3 @@ watch(isReady, (ready) => {
   }
 });
 </script>
-
-<style scoped>
-.monaco-diff-editor {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.monaco-editor-container {
-  width: 100%;
-  height: 100%;
-}
-</style>

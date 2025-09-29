@@ -85,7 +85,6 @@ export const useEditorLifecycle = (hooks?: EditorLifecycleHooks) => {
 
 export const useCommonEditor = () => {
   // 监听options的变化,同步更新
-  // TODO: 未来提取公共逻辑
 };
 
 export const useCodeEditor = (
