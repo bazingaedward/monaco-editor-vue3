@@ -1,6 +1,6 @@
 <template>
   <div ref="editorContainer" :style="style">
-    <!-- 自定义加载状态插槽 -->
+    <!-- Custom loading state slot -->
     <slot
       v-if="!isReady && !error"
       name="loading"
@@ -9,7 +9,7 @@
       :progress="loading.progress"
       :show-progress="showProgress"
     >
-      <!-- 默认加载组件 -->
+      <!-- Default loading component -->
       <MonacoLoading 
         v-if="useDefaultLoading"
         :loading-text="loadingText || loading.loadingText"
@@ -18,7 +18,7 @@
       />
     </slot>
     
-    <!-- 自定义错误状态插槽 -->
+    <!-- Custom error state slot -->
     <slot
       v-else-if="error && showErrorBoundary"
       name="error"
@@ -26,7 +26,7 @@
       :retry="handleRetry"
       :retryable="retryable"
     >
-      <!-- 默认错误组件 -->
+      <!-- Default error component -->
       <MonacoErrorBoundary 
         v-if="useDefaultErrorBoundary"
         :error="error"
@@ -38,7 +38,7 @@
       />
     </slot>
     
-    <!-- 编辑器容器 -->
+    <!-- Editor container -->
     <div 
       ref="container" 
       :style="{ width: '100%', height: '100%', visibility: isReady && !error ? 'visible' : 'hidden' }"
@@ -60,7 +60,7 @@ interface Props extends DiffEditorProps {
   showErrorBoundary?: boolean;
   retryable?: boolean;
   lifecycle?: EditorLifecycleHooks;
-  // 允许用户禁用默认组件，完全使用自定义插槽
+  // Allow users to disable default components and use custom slots completely
   useDefaultLoading?: boolean;
   useDefaultErrorBoundary?: boolean;
 }
@@ -95,7 +95,7 @@ const style = computed(() => ({
 
 const handleRetry = () => {
   retry();
-  emit('error', null); // 清除错误状态
+  emit('error', null); // Clear error state
 };
 
 // 监听状态变化并发射事件

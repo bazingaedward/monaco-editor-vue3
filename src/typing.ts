@@ -22,7 +22,7 @@ export interface DiffEditorProps extends BaseEditorProps {
   original?: string;
 }
 
-// 基础事件类型定义
+// Basic event type definitions
 export interface BaseEditorEvents {
   editorWillMount: () => void;
   change: (value: string, event: editor.IModelContentChangedEvent) => void;
@@ -37,7 +37,7 @@ export interface DiffEditorEvents extends BaseEditorEvents {
   editorDidMount: (editor: editor.IStandaloneDiffEditor) => void;
 }
 
-// Hook 返回类型
+// Hook return types
 export interface UseCodeEditorReturn {
   editorInstance: editor.IStandaloneCodeEditor | null;
   container: Ref<HTMLElement | undefined>;
@@ -58,13 +58,13 @@ export interface UseDiffEditorReturn {
   destroy: () => Promise<void>;
 }
 
-// 兼容性类型别名
+// Compatibility type alias
 export type MonacoEditorProps = DiffEditorProps;
 
-// 编辑器主题类型
+// Editor theme type
 export type EditorTheme = 'vs' | 'vs-dark' | 'hc-black' | 'hc-light' | string;
 
-// 支持的语言类型
+// Supported language types
 export type SupportedLanguage =
   | 'javascript'
   | 'typescript'
@@ -90,10 +90,10 @@ export type SupportedLanguage =
   | 'powershell'
   | string;
 
-// 编辑器尺寸类型
+// Editor size type
 export type EditorSize = string | number;
 
-// 编辑器状态类型
+// Editor state type
 export interface EditorState {
   isReady: boolean;
   hasError: boolean;

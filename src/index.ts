@@ -1,12 +1,12 @@
 import CodeEditor from './CodeEditor.vue';
 import DiffEditor from './DiffEditor.vue';
 
-// 导出组件
+// Export components
 export { CodeEditor, DiffEditor };
 
-// 导出 hooks
+// Export hooks
 export { useCodeEditor, useCommonEditor, useDiffEditor, useEditorState, useEditorLifecycle } from './hook';
-// 导出类型
+// Export types
 export type {
   BaseEditorEvents,
   BaseEditorProps,
@@ -19,15 +19,15 @@ export type {
   EditorPlugin,
   EditorSize,
   EditorState,
-  // 新增类型
+  // New types
   EditorTheme,
   MonacoEditorConfig,
-  MonacoEditorProps, // 兼容性导出
+  MonacoEditorProps, // Compatibility export
   SupportedLanguage,
   UseCodeEditorReturn,
   UseDiffEditorReturn,
 } from './typing';
-// 导出工具函数
+// Export utility functions
 export {
   createDefaultOptions,
   deepMerge,
@@ -36,5 +36,5 @@ export {
   warnMsg,
 } from './utils';
 
-// 默认导出
+// Default export
 export default CodeEditor;

@@ -232,7 +232,7 @@
     vue.watch(
       () => props.value,
       (newValue) => {
-        if (!editorInstance || !newValue)
+        if (!editorInstance || newValue === void 0)
           return;
         const currentValue = editorInstance.getValue();
         if (currentValue !== newValue) {

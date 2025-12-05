@@ -12,7 +12,7 @@ import type {
 import { warnMsg } from './utils';
 
 /**
- * 通用编辑器错误处理和状态管理 Hook
+ * General editor error handling and state management Hook
  */
 export const useEditorState = () => {
   const loading = ref<EditorLoadingState>({
@@ -61,7 +61,7 @@ export const useEditorState = () => {
 };
 
 /**
- * 生命周期钩子管理
+ * Lifecycle hook management
  */
 export const useEditorLifecycle = (hooks?: EditorLifecycleHooks) => {
   const executeHook = async (hookName: keyof EditorLifecycleHooks, ...args: any[]) => {
@@ -84,7 +84,7 @@ export const useEditorLifecycle = (hooks?: EditorLifecycleHooks) => {
 };
 
 export const useCommonEditor = () => {
-  // 监听options的变化,同步更新
+  // Watch for changes in options and update synchronously
 };
 
 export const useCodeEditor = (
@@ -122,7 +122,7 @@ export const useCodeEditor = (
       setLoading({ progress: 80 });
       await executeHook('onCreated', editorInstance);
 
-      // 注册内容变化监听事件
+      // Register content change listener
       editorInstance.onDidChangeModelContent((event) => {
         const value = (editorInstance as editor.IStandaloneCodeEditor).getValue();
         if (props.value !== value) {
@@ -179,7 +179,7 @@ export const useCodeEditor = (
     destroyEditor();
   });
 
-  // 监听options的变化,同步更新
+  // Watch for changes in options and update synchronously
   watch(
     () => props.options,
     (opt) => {
@@ -201,11 +201,11 @@ export const useCodeEditor = (
     }
   );
 
-  // 监听 value 变化
+  // Watch for value changes
   watch(
     () => props.value,
     (newValue) => {
-      if (!editorInstance || !newValue) return;
+      if (!editorInstance || newValue === undefined) return;
       const currentValue = editorInstance.getValue();
       if (currentValue !== newValue) {
         try {
@@ -273,7 +273,7 @@ export const useDiffEditor = (
 
       setLoading({ progress: 70 });
 
-      // 生成diff对应的model
+      // Generate models for diff
       const originalModel = editor.createModel(props.original ?? '', props.language);
       const modifiedModel = editor.createModel(props.value ?? '', props.language);
       editorInstance.setModel({
@@ -284,7 +284,7 @@ export const useDiffEditor = (
       setLoading({ progress: 80 });
       await executeHook('onCreated', editorInstance);
 
-      // 注册diffEditor内容变化监听事件
+      // Register diffEditor content change listener
       editorInstance.getModifiedEditor().onDidChangeModelContent((event) => {
         const value = (editorInstance?.getModifiedEditor() as editor.IStandaloneCodeEditor).getValue();
         if (props.value !== value) {
@@ -341,7 +341,7 @@ export const useDiffEditor = (
     destroyEditor();
   });
 
-  // 监听 original 和 value 变化
+  // Watch for original and value changes
   watch([() => props.original, () => props.value], ([newOriginal, newValue]) => {
     if (!editorInstance) return;
     try {

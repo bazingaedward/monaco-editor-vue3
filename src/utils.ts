@@ -2,17 +2,17 @@ import type { editor } from 'monaco-editor';
 import type { EditorError } from './typing';
 
 /**
- * 输出警告信息
- * @param msg 警告消息
+ * Output warning message
+ * @param msg Warning message
  */
 export const warnMsg = (msg: string): void => {
   console.warn(`[MonacoEditorVue3]: ${msg}`);
 };
 
 /**
- * 检查是否为有效的尺寸值
- * @param value 尺寸值
- * @returns 格式化后的尺寸值
+ * Check if it is a valid size value
+ * @param value Size value
+ * @returns Formatted size value
  */
 export const formatSize = (value: string | number): string => {
   if (typeof value === 'number') {
@@ -28,10 +28,10 @@ export const formatSize = (value: string | number): string => {
 };
 
 /**
- * 深度合并对象
- * @param target 目标对象
- * @param source 源对象
- * @returns 合并后的对象
+ * Deep merge objects
+ * @param target Target object
+ * @param source Source object
+ * @returns Merged object
  */
 export const deepMerge = <T extends Record<string, unknown>>(target: T, source: Partial<T>): T => {
   const result = { ...target };
@@ -63,9 +63,9 @@ export const deepMerge = <T extends Record<string, unknown>>(target: T, source: 
 };
 
 /**
- * 创建 monaco editor 实例的默认配置
- * @param language 语言类型
- * @returns 默认配置对象
+ * Create default configuration for monaco editor instance
+ * @param language Language type
+ * @returns Default configuration object
  */
 export const createDefaultOptions = (language = 'javascript'): editor.IStandaloneEditorConstructionOptions => ({
   language,
@@ -82,9 +82,9 @@ export const createDefaultOptions = (language = 'javascript'): editor.IStandalon
 });
 
 /**
- * 验证语言是否被 Monaco Editor 支持
- * @param language 语言标识符
- * @returns 是否支持该语言
+ * Verify if the language is supported by Monaco Editor
+ * @param language Language identifier
+ * @returns Whether the language is supported
  */
 export const isSupportedLanguage = (language: string): boolean => {
   const supportedLanguages = [
