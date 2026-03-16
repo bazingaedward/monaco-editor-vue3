@@ -16,6 +16,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['monaco-editor', 'vue'],
       output: {
+        exports: 'named',
         globals: {
           'monaco-editor': 'monaco-editor',
           vue: 'Vue',

@@ -1,5 +1,12 @@
-import type { editor } from 'monaco-editor';
+import { editor, languages } from 'monaco-editor';
 import type { EditorError } from './typing';
+
+declare global {
+  interface Window {
+    monaco: typeof import('monaco-editor');
+  }
+}
+
 
 /**
  * Output warning message

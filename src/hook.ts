@@ -68,7 +68,7 @@ export const useEditorLifecycle = (hooks?: EditorLifecycleHooks) => {
     const hook = hooks?.[hookName];
     if (hook) {
       try {
-        await hook(...args);
+        await (hook as any).apply(null, args);
       } catch (error) {
         hooks?.onError?.({
           code: 'LIFECYCLE_ERROR',
@@ -89,7 +89,7 @@ export const useCommonEditor = () => {
 
 export const useCodeEditor = (
   props: CodeEditorProps & { lifecycle?: EditorLifecycleHooks },
-  emit: (event: string, ...args: unknown[]) => void
+  emit: (event: any, ...args: any[]) => void
 ): UseCodeEditorReturn => {
   let editorInstance: editor.IStandaloneCodeEditor | null = null;
   const container = ref<HTMLElement>();
@@ -241,7 +241,7 @@ export const useCodeEditor = (
 
 export const useDiffEditor = (
   props: MonacoEditorProps & { lifecycle?: EditorLifecycleHooks },
-  emit: (event: string, ...args: unknown[]) => void
+  emit: (event: any, ...args: any[]) => void
 ): UseDiffEditorReturn => {
   let editorInstance: editor.IStandaloneDiffEditor | null = null;
   const container = ref<HTMLElement>();

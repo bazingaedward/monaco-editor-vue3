@@ -41,7 +41,7 @@
     <!-- Editor container -->
     <div 
       ref="container" 
-      :style="{ width: '100%', height: '100%', visibility: isReady && !error ? 'visible' : 'hidden' }"
+      :style="{ width: '100%', height: '100%', visibility: (isReady && !error ? 'visible' : 'hidden') as 'visible' | 'hidden' }"
     />
   </div>
 </template>

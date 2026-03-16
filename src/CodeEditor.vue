@@ -94,7 +94,7 @@ const editorWrapperStyle = computed(() => ({
 const editorContainerStyle = computed(() => ({
   width: '100%',
   height: '100%',
-  visibility: isReady.value && !error.value ? 'visible' : 'hidden',
+  visibility: (isReady.value && !error.value ? 'visible' : 'hidden') as 'visible' | 'hidden',
 }));
 
 const handleRetry = () => {
