@@ -55,7 +55,7 @@ export default defineConfig({
 
         footer: {
           message: 'Released under the MIT License.',
-          copyright: 'Copyright © 2024 Monaco Editor Vue3',
+          copyright: `Copyright © ${new Date().getFullYear()} Monaco Editor Vue3`,
         },
       },
     },
@@ -105,7 +105,7 @@ export default defineConfig({
 
         footer: {
           message: '基于 MIT 许可发布。',
-          copyright: 'Copyright © 2024 Monaco Editor Vue3',
+          copyright: `Copyright © ${new Date().getFullYear()} Monaco Editor Vue3`,
         },
 
         docFooter: {
@@ -133,6 +133,79 @@ export default defineConfig({
         darkModeSwitchTitle: '切换到深色模式',
       },
     },
+    'zh-hant': {
+      label: '繁體中文',
+      lang: 'zh-Hant',
+      title: 'Monaco Editor Vue3',
+      description: '基於 Vue 3 和 TypeScript 的 Monaco Editor 組件',
+      themeConfig: {
+        nav: [
+          { text: '指南', link: '/zh-hant/guide' },
+          {
+            text: '範例',
+            items: [
+              { text: '範例總覽', link: '/zh-hant/examples/' },
+              { text: '基礎範例', link: '/zh-hant/examples/basic' },
+              { text: '載入狀態與錯誤邊界', link: '/zh-hant/examples/loading-and-errorboundary' },
+            ],
+          },
+          { text: 'API 文件', link: '/zh-hant/api' },
+          { text: '線上示範', link: 'https://microsoft.github.io/monaco-editor/playground.html' },
+        ],
+
+        sidebar: [
+          {
+            text: '開始使用',
+            items: [
+              { text: '完整指南', link: '/zh-hant/guide' },
+              { text: 'API 文件', link: '/zh-hant/api' },
+            ],
+          },
+          {
+            text: '範例',
+            items: [
+              { text: '範例總覽', link: '/zh-hant/examples/' },
+              { text: '基礎範例', link: '/zh-hant/examples/basic' },
+              { text: '載入狀態與錯誤邊界', link: '/zh-hant/examples/loading-and-errorboundary' },
+            ],
+          },
+        ],
+
+        editLink: {
+          pattern: 'https://github.com/bazingaedward/monaco-editor-vue3/edit/main/docs/:path',
+          text: '在 GitHub 上編輯此頁面',
+        },
+
+        footer: {
+          message: '基於 MIT 授權發布。',
+          copyright: `Copyright © ${new Date().getFullYear()} Monaco Editor Vue3`,
+        },
+
+        docFooter: {
+          prev: '上一頁',
+          next: '下一頁',
+        },
+
+        outline: {
+          label: '頁面導覽',
+        },
+
+        lastUpdated: {
+          text: '最後更新於',
+          formatOptions: {
+            dateStyle: 'short',
+            timeStyle: 'medium',
+          },
+        },
+
+        langMenuLabel: '多語言',
+        returnToTopLabel: '回到頂部',
+        sidebarMenuLabel: '選單',
+        darkModeSwitchLabel: '主題',
+        lightModeSwitchTitle: '切換到淺色模式',
+        darkModeSwitchTitle: '切換到深色模式',
+      },
+    },
   },
 
   themeConfig: {
@@ -154,6 +227,22 @@ export default defineConfig({
                 footer: {
                   selectText: '选择',
                   navigateText: '切换',
+                },
+              },
+            },
+          },
+          'zh-hant': {
+            translations: {
+              button: {
+                buttonText: '搜尋文件',
+                buttonAriaLabel: '搜尋文件',
+              },
+              modal: {
+                noResultsText: '無法找到相關結果',
+                resetButtonTitle: '清除查詢條件',
+                footer: {
+                  selectText: '選擇',
+                  navigateText: '切換',
                 },
               },
             },
